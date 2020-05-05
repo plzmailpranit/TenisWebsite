@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
-namespace TenisWebsite.Api
+namespace TenisWebsite.Api //test
 {
     public class Program
     {
