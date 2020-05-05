@@ -17,7 +17,7 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         width: "380px",
-        height: "600px",
+        height: "70vh",
         border: "10px solid black",
         opacity: "0.67",
         borderRadius: "20px",
