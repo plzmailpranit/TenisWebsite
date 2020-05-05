@@ -13,7 +13,7 @@ namespace TenisWebsite.Api
         public readonly IOptions<IdentityOptions> options;
         public IdentityConfig()
         {
-           // xD
+           
             options.Value.SignIn.RequireConfirmedEmail = true;
             options.Value.User.RequireUniqueEmail = true;
             options.Value.Password.RequireDigit = true;
