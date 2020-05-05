@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TenisWebsite.Common\TenisWebsite.Common.csproj" />
+    <ProjectReference Include="..\TenisWebsite.Domain\TenisWebsite.Domain.csproj" />
+    <ProjectReference Include="..\TenisWebsite.IData\TenisWebsite.IData.csproj" />
+    <ProjectReference Include="..\TenisWebsite.IServices\TenisWebsite.IServices.csproj" />
+  </ItemGroup>
+
+</Project>
