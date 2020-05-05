@@ -15,7 +15,7 @@ function Main() {
                         <p className="tytul2">w Zdzieszowicach </p>
                         <p className="tytul2">w Zdzieszowicach </p>
                         <p className="tytul2">w Zdzieszowicach </p>
-
+                        <p className="tytul2">w Zdzieszowicach </p>
                     </div>
                 </div>
             </div>
