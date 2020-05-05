@@ -34,7 +34,7 @@ function Table() {
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_below_1">
 
-                                                <table className="table" >
+                                                <table className="table2" >
                                                     <tbody>
                                                         <tr>
                                                             <th>Miejsce </th>

@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import app from "../Config/base";
- 
+import { Redirect } from 'react-router-dom'
+
 class SignUp extends Component {
- 
+
     constructor() {
         super();
- 
+
         this.state = {
             UserName: '',
             Email: '',
             Password: ''
+
         }
- 
+
         this.UserName = this.UserName.bind(this);
         this.Email = this.Email.bind(this);
         this.Password = this.Password.bind(this);
@@ -27,47 +28,56 @@ class SignUp extends Component {
     Password(event) {
         this.setState({ Password: event.target.value })
     }
- 
+
     register(event) {
- 
+
         fetch('http://localhost:5000/api/v1/user/Register', {
             method: 'post',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(
-                {
+            body: JSON.stringify({
                 UserName: this.state.UserName,
                 Password: this.state.Password,
                 Email: this.state.Email
-                })
-        }).then((Response) => Response.json())
-            .then((Result) => {
-                if (Result.Status == 'Success')
-                    this.props.history.push("/");
-                else
-                    alert('Fail')
             })
+        }).then((status) => status.json())
+
+            .then((Result) => {
+
+                if (Result.status == 'Succes') {
+                    alert(Result.status)
+                    this.props.history.push("/");
+                }
+                else {
+                    alert(Result.status)
+                }
+            }
+
+            )
+
     }
     render() {
- 
+
         return (
- 
-            <form class="form-box__form form" >
+
+            <form onSubmit={this.register} class="form-box__form form" >
                 <div class="form-box">
                     <h2 class="form-box__title">Rejestracja:</h2>
-                    <input class="form__text-input" onChange={this.UserName} type="text" name="email" placeholder="Login" />
-                    <input class="form__text-input" onChange={this.Email} type="e-mail" name="email" placeholder="Adres e-mail" />
-                    <input class="form__text-input" onChange={this.Password} type="password" name="password" id="password" placeholder="Hasło" />
- 
+                    <input class="form__text-input" onChange={this.UserName} type="text" placeholder="Login" pattern="[A-Za-z0-9-]{3,99}" title="Login musi miec przynajmniej 3 znaki" required />
+                    <input class="form__text-input" onChange={this.Email} type="e-mail" placeholder="Adres e-mail" pattern="[A-Za-z0-9-]{2,}@[A-Za-z0-9-]{2,}[.]{1}[a-zA-Z]{2,}" title="Podaj swój adres email" required />
+                    <input class="form__text-input" onChange={this.Password} type="password" id="password" placeholder="Hasło" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        title="Hasło musi zawierać małą jak i duzą litere,znak specjalny oraz zawierać minimum 8 znaków" required />
+
                     <div class="register">
-                        <button onClick={this.register} >Stwórz konto</button>
+                        <button  >Stwórz konto</button>
                     </div>
                 </div>
             </form >
         );
     }
 }
- 
+
 export default SignUp;
