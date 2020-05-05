@@ -1,0 +1,27 @@
+.end{
+
+    text-align:right;
+    font-size:1.4em;
+   height: 100px;
+   margin-right: 2%;
+  position: relative;
+}
+
+img.logoswsc{
+    width: 6%;
+    float: left;
+    margin: 1%;
+    right: 30%;
+}
+.foot{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    background-image: url(../images/hered.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    clear: both;
+    bottom: 0;
+    height: 60px;
+}

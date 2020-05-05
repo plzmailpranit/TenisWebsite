@@ -1,0 +1,180 @@
+#nav{
+    position: relative;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    }
+    .navbar{
+        height: 60%;
+    }
+    .navbar-brand img{
+        height: 80px;
+        padding-left: 10px;
+    }
+    .navbar-nav li {
+        padding: 7px;
+    }
+    .navbar-nav li a {
+        text-align: left;
+    } 
+    .navbar li a{
+        display: block;
+        padding: 0.5vw;
+        text-decoration: none;
+        color:rgb(0, 0, 0);
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0 4%;
+        position: relative;
+    }
+    .navbar li a,
+    .navbar li a:after,
+    .navbar li a:before {
+      transition: all .5s;
+    }
+    .navbar li a:hover {
+        color: rgb(0, 0, 0);
+      }
+      .navbar li a:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0%;
+        content: '.';
+        color: transparent;
+        background: rgb(0, 0, 0);
+        height: 5%;
+      }
+      .navbar li a:hover:after {
+        width: 100%;
+      }
+      .navbar button {
+        background-color: transparent;
+        border: 3px solid #000000;
+        color: #000000;
+        transition: .3s;
+        font-weight: 600;
+      }
+      .navbar .btn:hover {
+        animation: pulse 1s infinite;
+        transition: .3s;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        70% {
+          transform: scale(.9);
+        }
+          100% {
+          transform: scale(1);
+        }
+      }
+      .head{
+        background-image: url(../images/heree.png);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .form {
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      
+      }
+  .form-box h2{
+    text-align: center;
+    text-shadow: black;
+    font-size: 2.5em;
+  
+  }
+  .form-box [type=password], .form-box input[type=text], .form-box input[type=e-mail]   {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  
+    border: 4px solid #ffc400;;
+  
+    border-radius: 20px;
+    display: inline-block;
+    background:white;
+    transition: all 0.3s;
+  }
+  .form-box [type=password]:focus{
+
+    border: 4px solid rgb(0, 0, 0);
+  }
+  .form-box [type=text]:focus{
+
+    border: 4px solid rgb(0, 0, 0);
+  }
+  .form-box [type=e-mail]:focus{
+
+    border: 4px solid rgb(0, 0, 0);
+  }
+  input:focus{
+    background-color:black;
+    transition: all 0.3s;
+    outline: none;
+  }
+  .register {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  .login {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  ::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+  .register button{
+    width: 80%;
+    height: 60px;
+    padding: 1%;
+    border-radius: 20px;
+    font-weight: bolder;
+    border: 4px solid  #ffc400;
+  }
+  .login button{
+    width: 300%;
+    height: 60px;
+    padding: 1%;
+    border-radius: 20px;
+    font-weight: bolder;
+    border: 4px solid  #ffc400;
+  }
+  .register button:hover{
+    border: 4px solid  #000000;;
+  }
+  .login button:hover{
+    border: 4px solid  #000000;;
+  }
+  .tabsy{
+    font-weight: bold;
+    color: black;
+  }
+  .tabsy{
+    font-weight: bold;
+    color: #ffc400;
+  }
+  .formbutt{
+    width: 100%;
+    text-align: center;
+  }
