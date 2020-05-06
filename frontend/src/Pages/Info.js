@@ -16,9 +16,22 @@ function Info() {
                     <p className="adres">Adres: <br />47-330 Zdzieszowice <br /> ul. Rozwadzka, koło Stadionu</p>
                 </div>
                 <div class="col-5">
-                    <img src={BackGround} className="szarepodtlo" alt="" />
-                    <p className="tekst">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+                    <p className="tekst">
+                        <h2>Regulamin:</h2>
+                        <p>1. Graj jak Pablo</p>
+                        <p>2. Nie serwuj za mocno (dziury porobisz)</p>
+                        <p>3. Dopuszczalna waga gracza 100kg (dziury porobisz grubasie)</p>
+                        <p>4. Sprzataj po sobie</p>
+                        <p>5. Nie wywalaj pilek za plot Czarek</p>
+                        <p>6. Jak cos zepsujesz zglos (i see u (o_o) )</p>
+                        <p>7. Zarzadca ma zawsze racje</p>
+                        <p>8. Jesli zarzadca nie ma racji patrz na pkt 7</p>
+                        <p>9. Regulamin jest kozacki, jak nie pasuje to ...</p>
+                        <p>10. Have Fun!</p>
+                    </p>
                 </div>
+
             </div>
         </Wrapper >
     )
