@@ -14,10 +14,30 @@ body{
     background-image: url(./images/srodek.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-
+    background-position: center; 
     
 }
+@media only screen and (max-height: 800px) {
+  body {
+    overflow-x:hidden;
+    overflow-y:auto;
+    background-image: url(./images/srodek.png);
+    background-repeat: no-repeat;
+    background-size: 100% 165%;
+    background-position: center; 
+  }
+}
+@media only screen and (max-height: 600px) {
+  body {
+    overflow-x:hidden;
+    overflow-y:auto;
+    background-image: url(./images/srodek.png);
+    background-repeat: no-repeat;
+    background-size: 100% 243%;
+    background-position: center; 
+  }
+}
+
 p {
   font-size: 2vmin;
 }
