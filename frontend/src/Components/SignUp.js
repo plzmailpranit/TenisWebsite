@@ -31,7 +31,7 @@ class SignUp extends Component {
 
     register(event) {
 
-        fetch('http://localhost:5000/api/v1/user/Register', {
+        fetch('https://localhost:5001/api/v1/user/Register', {
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -48,11 +48,11 @@ class SignUp extends Component {
             .then((Result) => {
 
                 if (Result.status == 'Succes') {
-                    alert(Result.status)
+                    alert('Zarejestrowano pomyslnie')
                     this.props.history.push("/");
                 }
                 else {
-                    alert(Result.status)
+                    alert('Nazwa uzytkownika badz email jest juz w bazie')
                 }
             }
 

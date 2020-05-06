@@ -4,8 +4,8 @@ import logo from '../images/logoswsc.png'
 
 function Footer() {
     return (
-        <div class="row">
-            <div class="col">
+        <div className="row">
+            <div className="col">
                 <div className="foot">
                     <img className="logoswsc" src={logo} alt="" />
                     <div className="end">

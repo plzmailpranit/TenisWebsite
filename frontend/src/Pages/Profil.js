@@ -5,8 +5,8 @@ import alfie from '../images/alfie.jpg';
 function Info() {
     return (
         <Wrapper>
-            <div class="row">
-                <div class="col-6">
+            <div className="row">
+                <div className="col-6">
 
                     <img className="zdjecie" src={alfie} alt="" />
                     <div className="user">
@@ -17,7 +17,7 @@ function Info() {
                     </div>
 
                 </div>
-                <div class="col-6">
+                <div className="col-6">
                     <div className="look">
                         <h2>Mecze do rozegrania:</h2>
                         <br />
@@ -29,8 +29,8 @@ function Info() {
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6">
+            <div className="row">
+                <div className="col-6">
 
                     <div className="look">
                         <h2>Twoje ligi: </h2>
@@ -43,7 +43,7 @@ function Info() {
                     </div>
 
                 </div>
-                <div class="col-6">
+                <div className="col-6">
                     <div className="look">
                         <h2>Wyzwania: </h2>
                         <br />

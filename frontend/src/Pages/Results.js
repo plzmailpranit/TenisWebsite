@@ -4,8 +4,8 @@ import '../styles/main.css';
 function Info() {
     return (
         <Wrapper>
-            <div class="row">
-                <div class="col-5">
+            <div className="row">
+                <div className="col-5">
                     <h2>TO JEST PANEL WYNIKOW</h2>
                 </div>
             </div>
