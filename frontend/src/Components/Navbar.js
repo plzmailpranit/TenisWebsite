@@ -10,7 +10,7 @@ import SignUp from './SignUp';
 
 const customStyles = {
     content: {
-        top: '40%',
+        top: '50%',
         left: '50%',
         right: 'auto',
         bottom: 'auto',
