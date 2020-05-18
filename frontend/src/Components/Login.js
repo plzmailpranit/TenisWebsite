@@ -61,7 +61,7 @@ class Login extends Component {
 
 
                 </div>
-                <div class="login">
+                <div className="login">
                     <button  >Zaloguj się</button>
                 </div>
             </form>
