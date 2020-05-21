@@ -14,7 +14,7 @@ namespace TenisWebsite.Common
             MailAddress addressFrom = new MailAddress("teniswebsiteauthentication@gmail.com", "TenisWebsite Confirm Email");
             MailMessage message = new MailMessage(addressFrom, to);
             message.Subject = "Using the new SMTP client.";
-            message.Body = "Please confirm your account by clicking this link: <a href= \"https://www.TenisWebiste.pl/ConfirmEmail?Token='"+ token +"'&userName='"+username+ "'\">link</a>";
+            message.Body = "Please confirm your account by clicking this link: <a href= \"http://localhost:3000/Confirm?Token='" + token +"'&userName='"+username+ "'\">link</a>";
             message.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient();
