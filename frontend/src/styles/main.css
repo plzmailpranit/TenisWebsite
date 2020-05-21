@@ -405,27 +405,39 @@ img.zdjecie{
       .TitleResults{
         text-align: center;
       }
+      .TitleResults h1{
+        color: whitesmoke;
+        text-shadow: 2px 2px 2px black;
+      }
       .LeagueResults{
         background-color: rgba(41, 40, 40, 0.6);
-        padding: 3%;
-       
-      
-          margin-left: 5%;
-          font-size: 1em;
-          color: white;
-          width: 90%;
-          text-align: justify;
-          font-family: Comic Sans MS, Comic Sans, cursive;
+        padding: 10px 0px 10px 0px;
+        height: 55%;
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 1em;
+        color: white;
+        width: 90%;
+        text-align: justify;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+        overflow-y: auto;
+      }
+      .LeagueResults h2{
+        padding: 2%;
       }
       .RankingResults{
         background-color: rgba(41, 40, 40, 0.6);
-  padding: 3%;
-    margin-left: 5%;
-    font-size: 1em;
-    color: white;
-    width: 90%;
-    text-align: justify;
-    font-family: Comic Sans MS, Comic Sans, cursive;
+        padding: 10px 0px 10px 0px;
+        height: 55%;
+        margin-left: 5%;
+        font-size: 1em;
+        color: white;
+        width: 95%;
+        text-align: justify;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+      }
+      .RankingResults h2{
+        padding: 2%;
       }
       .Confirm{
         text-align: center;
@@ -434,3 +446,60 @@ img.zdjecie{
         color: white;
         
       }
+      .table3{
+        width: 92%;
+        overflow-y: scroll;
+        margin: 0% 5% 0% 5%;
+        text-align: center;
+        column-gap: 5rem;
+        table-layout: fixed;
+        float: left;
+        border: 5px solid black;
+      
+        }
+        .table3 td,th {
+          
+            font-size: 0.9em;
+            height: 1.5em;
+            padding: 1px 5px 1px 4px;
+            text-align: center;
+            vertical-align: top;
+            font-weight: bolder;
+            text-align: center;
+            
+        }
+        .table3 td{
+          color: black;
+        }
+        .table3 tbody tr:nth-child(even) td {
+            background-color: rgba(255, 255, 255, 0.95)
+        }
+        .table3 tbody tr:nth-child(odd) td{
+            background-color: rgba(255, 255, 255, 0.8); 
+        }
+        .table3 tbody th{
+          background-image: linear-gradient(180deg, gray, white);
+            padding: 20px 10px 10px 35px;
+            color: white;
+            font-size:1em;
+            text-shadow: 2px 2px 2px black;
+            text-align: left;
+        }
+        .table3 button{
+          margin: 4px;
+          border-width: 3px;
+          border-style: solid;
+          border-color: black;
+          border-radius: 10%;
+        
+        }
+        .table3 button:hover{
+          background-color: rgba(209, 209, 209, 0.8);
+        }
+        .table3 tbody tr:hover td{
+            border-top: 2px solid orange;
+            border-bottom: 2px solid orange;
+        }
+        .table3 tbody tr:nth-child(5) td:nth-child(4){
+        height: 3em;
+        }
