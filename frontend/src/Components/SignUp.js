@@ -67,7 +67,7 @@ class SignUp extends Component {
                 <div class="form-box">
                     <h2 class="form-box__title">Rejestracja:</h2>
                     <input class="form__text-input" onChange={this.UserName} type="text" placeholder="Login" pattern="[A-Za-z0-9-]{3,99}" title="Login musi miec przynajmniej 3 znaki" required />
-                    <input class="form__text-input" onChange={this.Email} type="e-mail" placeholder="Adres e-mail" pattern="[A-Za-z0-9-]{2,}@[A-Za-z0-9-]{2,}[.]{1}[a-zA-Z]{2,}" title="Podaj swój adres email" required />
+                    <input class="form__text-input" onChange={this.Email} type="e-mail" placeholder="Adres e-mail" pattern="[A-Za-z0-9-.,]{2,}@[A-Za-z0-9-]{2,}[.]{1}[a-zA-Z]{2,}" title="Podaj swój adres email" required />
                     <input class="form__text-input" onChange={this.Password} type="password" id="password" placeholder="Hasło" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                         title="Hasło musi zawierać małą jak i duzą litere,znak specjalny oraz zawierać minimum 8 znaków" required />
 

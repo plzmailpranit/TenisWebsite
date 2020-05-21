@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import Confirm from './Components/Confirm';
 import Main from './Components/Main';
 import Contact from './Pages/Contact';
 import Info from './Pages/Info';
@@ -64,6 +65,7 @@ const App = () => {
                   <Route path="/Contact" component={Contact} />
                   <Route path="/Info" component={Info} />
                   <Route path="/Table" component={Table} />
+                  <Route path="/Confirm" component={Confirm} />
                 </Switch>
               </animated.div>
             ))}
