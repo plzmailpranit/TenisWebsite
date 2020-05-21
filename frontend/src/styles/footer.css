@@ -1,14 +1,12 @@
 .end{
-
     text-align:right;
-    font-size:1.4em;
-   height: 100px;
+    font-size:1em;
    margin-right: 2%;
   position: relative;
 }
 
 img.logoswsc{
-    width: 6%;
+    width: 5%;
     float: left;
     margin: 1%;
     right: 30%;
@@ -25,3 +23,31 @@ img.logoswsc{
     bottom: 0;
     height: 60px;
 }
+@media only screen and (max-height: 800px) {
+    .foot{
+        font-family: Comic Sans MS, Comic Sans, cursive;
+        background-image: url(../images/hered.png);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: fixed;
+        clear: both;
+        bottom: 0;
+        height: 30px;
+    }
+    .end{
+        text-align:right;
+        font-size:0.5em;
+       margin-right: 2%;
+      position: relative;
+    }
+    
+    img.logoswsc{
+        width: 5%;
+        float: left;
+        margin: 1%;
+        right: 30%;
+    }
+}
+  

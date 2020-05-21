@@ -4,8 +4,8 @@ import Wrapper from '../Pages/Wrapper'
 function Main() {
     return (
         <Wrapper>
-            <div class="row">
-                <div class="col">
+            <div className="row">
+                <div className="col">
                     <div className="main">
                         <br />
                         <br />

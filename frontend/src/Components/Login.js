@@ -1,7 +1,4 @@
-import React, { useCallback, Component } from "react";
-import { withRouter, Redirect } from "react-router";
-import app from "../Config/base";
-import { AuthContext } from "../Config/Auth";
+import React, { Component } from "react";
 import '../styles/Nav.css';
 
 class Login extends Component {
@@ -26,7 +23,7 @@ class Login extends Component {
     }
     login(event) {
         debugger;
-        fetch('http://localhost:5000/api/v1/user/Login', {
+        fetch('https://localhost:5001/api/v1/user/Login', {
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -40,7 +37,6 @@ class Login extends Component {
         }).then((status) => status.json())
 
             .then((Result) => {
-                alert(Result.status)
                 if (Result.status == 'Error') {
                     alert('Niepoprawny login lub hasło!');
                 }
@@ -48,7 +44,6 @@ class Login extends Component {
                     alert('Zalogowano poprawnie!');
                     window.location.replace("http://localhost:3000/AppLogged/Profil");
                 }
-
             })
     }
 
@@ -66,7 +61,7 @@ class Login extends Component {
 
 
                 </div>
-                <div class="login">
+                <div className="login">
                     <button  >Zaloguj się</button>
                 </div>
             </form>

@@ -13,14 +13,9 @@
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-align: right;
 }
-.szarepodtlo{
-    width: 60em;
-      position: relative;
-      margin: 10%;
-      height: 40em;
- 
-  }
 .tekst{
+  background-color: rgba(41, 40, 40, 0.7);
+  padding: 3%;
     position: absolute;
     top: 110px;
     left: 15%;
@@ -34,6 +29,7 @@
     font-size: 1.5em;
     text-align: center;
     font-family: Comic Sans MS, Comic Sans, cursive;
+    margin-bottom: 10%;
 }
 .imageinfo{
  width: 90%;
@@ -44,12 +40,12 @@
 }
 .formtitle{
     font-family: Comic Sans MS, Comic Sans, cursive;
-    font-size: 2em;
+    font-size: 3vh;
     font-weight: bolder;
 }
 .formularz{
     text-align: center;
-    margin-top: 3%;
+    margin-top: 2%;
     
 }
 ::placeholder {
@@ -58,7 +54,7 @@
   }
 form { max-width:420px;  display: inline-block;    
     }
- 
+  
 .feedback-input {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 1.5em;
@@ -66,8 +62,8 @@ form { max-width:420px;  display: inline-block;
   background-color: transparent;
   border:5px solid rgba(255, 255, 255,.7);
   transition: all 0.3s;
-  padding: 13px;
-  margin-bottom: 15px;
+  padding: 1vh;
+  margin-bottom: 1.5vh;
   width:100%;
   box-sizing: border-box;
   outline:0;
@@ -81,11 +77,10 @@ color: black;
 }
  
 textarea {
-  height: 150px;
+  height: 20vh;
   line-height: 150%;
   resize:vertical;
   max-height: 200px;
- 
 }
  
 [type="submit"] {
@@ -96,16 +91,25 @@ textarea {
   border:5px solid rgba(255, 255, 255);
   cursor:pointer;
   color:black;
-  font-size:24px;
-  padding-top:10px;
-  padding-bottom:10px;
+  font-size:2vh;
+  padding-top:1vh;
+  padding-bottom:1vh;
   transition: all 0.3s;
   margin-top:-4px;
   font-weight:700;
   opacity: 0.7;
 }
+@media only screen and (max-height: 800px) {
+    .formtitle{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 1.5vw;
+    font-weight: bolder;
+            }
+}
+
 [type="submit"]:hover { background:rgb(255, 255, 255); color:rgb(0, 0, 0);   border:5px solid rgb(0, 0, 0); opacity: 1;}
 img.zdjecie{
+  width: 25%;
   border: 4px solid black;
   border-radius: 50px;
   margin-left: 8%;
@@ -114,7 +118,7 @@ img.zdjecie{
 }
 .user{
   margin-top: 10%;
-  margin-left: 50%;
+  margin-left: 40%;
 }
 .look{
  
@@ -168,7 +172,8 @@ img.zdjecie{
 .vertical-tabs{ padding:8px;}
 }
 .ilosctabs{
-  margin-top: 470pt;
+  margin-top: 460pt;
+  margin-bottom: 4%;
   margin-right: 15%;
   float: right;
 }
@@ -213,9 +218,7 @@ img.zdjecie{
   table-layout: fixed;
   float: left;
   border: 5px solid black;
-  
- 
-  
+
   }
   .table2 td,th {
     
@@ -246,13 +249,13 @@ img.zdjecie{
       border-top: 2px solid orange;
       border-bottom: 2px solid orange;
   }
-
+ 
   .table1{
     
     width: 75%;
     border-collapse: collapse;
     margin-top: 1%;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
     position: absolute;
     margin-left: 20%;
     text-align: center;
@@ -261,9 +264,7 @@ img.zdjecie{
     table-layout: fixed;
     }
     .table1 td,th {
-      
       width: 0.3em;
-     
       font-weight: bolder;
       text-align: center;
       table-layout: fixed;
@@ -277,7 +278,7 @@ img.zdjecie{
     padding: 1px 1px;
     font-size: 1.4vmin;
     border:2px solid black;
-    height: 4rem;
+    height: 3.7rem;
     width: 3vw;
     table-layout: fixed;
     background-color: rgba(235, 233, 233, 0.815);
@@ -318,7 +319,7 @@ img.zdjecie{
   }
   .table1 tbody th{
     background-image: linear-gradient(180deg, orange, white);
-      height: 2.5em;
+      height: 2.3em;
       padding: 1em;
       text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
       color: whitesmoke;
@@ -341,3 +342,90 @@ img.zdjecie{
     border-top: none;
     border-bottom: none;
   }
+
+  .user button{
+    display:inline-block;
+    padding:0.5em 1.5em;
+    border:0.3em solid rgb(0, 0, 0);
+    margin:0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration:none;
+    
+    font-weight:700;
+    color:rgb(0, 0, 0);
+    background-color: rgba(184, 184, 184, .8);
+    text-align:center;
+    transition: all 0.6s;
+    }
+    .user button:hover{
+      color:rgb(255, 255, 255);
+      background-color: orange;
+      }
+
+      @media all and (max-width:30em){
+      .user button{
+      display:block;
+      margin:0.4em auto;
+      }
+      }
+
+      .AboutMe {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box; 
+        border: 4px solid #ffc400;;
+        border-radius: 20px;
+        display: inline-block;
+        background:white;
+        transition: all 0.3s;
+      }
+       
+      .AboutMe:focus {
+        border: 4px solid rgb(0, 0, 0);
+      }
+      .Save {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+      }
+      .Save button{
+        width: 300%;
+        height: 60px;
+        padding: 1%;
+        border-radius: 20px;
+        font-weight: bolder;
+        border: 4px solid  #ffc400;
+      }
+      .Save button:hover{
+        border: 4px solid  #000000;;
+      }
+      .TitleResults{
+        text-align: center;
+      }
+      .LeagueResults{
+        background-color: rgba(41, 40, 40, 0.6);
+        padding: 3%;
+       
+      
+          margin-left: 5%;
+          font-size: 1em;
+          color: white;
+          width: 90%;
+          text-align: justify;
+          font-family: Comic Sans MS, Comic Sans, cursive;
+      }
+      .RankingResults{
+        background-color: rgba(41, 40, 40, 0.6);
+  padding: 3%;
+ 
+
+    margin-left: 5%;
+    font-size: 1em;
+    color: white;
+    width: 90%;
+    text-align: justify;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+      }

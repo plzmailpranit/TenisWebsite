@@ -14,7 +14,6 @@ import Profil from './Pages/Profil';
 import Results from './Pages/Results';
 import NavbarLogged from './Components/NavbarLogged';
 import { AuthProvider } from './Config/Auth'
-import PrivateRoute from './Config/PrivateRoute';
 
 const App = () => {
 
@@ -37,12 +36,12 @@ const App = () => {
               {transitions.map(({ item, props, key }) => (
                 <animated.div key={key} style={props} >
                   <Switch location={item}>
-                    <PrivateRoute exact path="/AppLogged/" component={Main} />
-                    <PrivateRoute path="/AppLogged/Contact" component={Contact} />
-                    <PrivateRoute path="/AppLogged/Info" component={Info} />
-                    <PrivateRoute path="/AppLogged/Table" component={Table} />
-                    <PrivateRoute path="/AppLogged/Profil" component={Profil} />
-                    <PrivateRoute path="/AppLogged/Results" component={Results} />
+                    <Route exact path="/AppLogged/" component={Main} />
+                    <Route path="/AppLogged/Contact" component={Contact} />
+                    <Route path="/AppLogged/Info" component={Info} />
+                    <Route path="/AppLogged/Table" component={Table} />
+                    <Route path="/AppLogged/Profil" component={Profil} />
+                    <Route path="/AppLogged/Results" component={Results} />
 
                   </Switch>
                 </animated.div>

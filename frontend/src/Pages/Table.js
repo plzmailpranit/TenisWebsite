@@ -6,33 +6,33 @@ function Table() {
     return (
         <Wrapper>
 
-            <div class="menubok">
-                <div class="vertical-tabs">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">Ranking</a>
+            <div className="menubok">
+                <div className="vertical-tabs">
+                    <ul className="nav nav-tabs" role="tablist">
+                        <li className="nav-item">
+                            <a className="nav-link active" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">Ranking</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">I Liga</a>
+                        <li className="nav-item">
+                            <a className="nav-link" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">I Liga</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="messages">II Liga</a>
+                        <li className="nav-item">
+                            <a className="nav-link" data-toggle="tab" href="#pag3" role="tab" aria-controls="messages">II Liga</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="settings">III Liga</a>
+                        <li className="nav-item">
+                            <a className="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="settings">III Liga</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="tabeleprawo">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="pag1" role="tabpanel">
-                        <div class="sv-tab-panel">
-                            <div class="tabbable-panel">
-                                <div class="tabbable-line tabs-below">
-                                    <div class="ilosckontent">
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="tab_below_1">
+            <div className="tabeleprawo">
+                <div className="tab-content">
+                    <div className="tab-pane active" id="pag1" role="tabpanel">
+                        <div className="sv-tab-panel">
+                            <div className="tabbable-panel">
+                                <div className="tabbable-line tabs-below">
+                                    <div className="ilosckontent">
+                                        <div className="tab-content">
+                                            <div className="tab-pane active" id="tab_below_1">
 
                                                 <table className="table2" >
                                                     <tbody>
@@ -96,26 +96,26 @@ function Table() {
                                                 </table>
 
                                             </div>
-                                            <div class="tab-pane" id="tab_below_2">
+                                            <div className="tab-pane" id="tab_below_2">
                                                 Howdy, I'm in Tab 2.
                                         </div>
-                                            <div class="tab-pane" id="tab_below_3">
+                                            <div className="tab-pane" id="tab_below_3">
                                                 Howdy, I'm in Tab 3.
                                         </div>
                                         </div>
                                     </div>
-                                    <div class="ilosctabs">
-                                        <ul class="nav nav-tabs" role="tablist">
+                                    <div className="ilosctabs">
+                                        <ul className="nav nav-tabs" role="tablist">
                                             <li >
-                                                <a class="nav-link active" href="#tab_below_1" data-toggle="tab">
+                                                <a className="nav-link active" href="#tab_below_1" data-toggle="tab">
                                                     TOP 10 </a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#tab_below_2" data-toggle="tab">
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="#tab_below_2" data-toggle="tab">
                                                     11-20 </a>
                                             </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#tab_below_3" data-toggle="tab">
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="#tab_below_3" data-toggle="tab">
                                                     21-30 </a>
                                             </li>
 
@@ -126,8 +126,8 @@ function Table() {
 
                         </div>
                     </div>
-                    <div class="tab-pane" id="pag2" role="tabpanel">
-                        <div class="sv-tab-panel">
+                    <div className="tab-pane" id="pag2" role="tabpanel">
+                        <div className="sv-tab-panel">
                             <table className="table1" >
                                 <tbody>
                                     <tr>
@@ -289,14 +289,14 @@ function Table() {
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane" id="pag3" role="tabpanel">
-                        <div class="sv-tab-panel">
+                    <div className="tab-pane" id="pag3" role="tabpanel">
+                        <div className="sv-tab-panel">
                             <h3>TAB 3</h3>
                             <p>CONTEUDO 3</p>
                         </div>
                     </div>
-                    <div class="tab-pane" id="pag4" role="tabpanel">
-                        <div class="sv-tab-panel">
+                    <div className="tab-pane" id="pag4" role="tabpanel">
+                        <div className="sv-tab-panel">
                             <h3>TAB 4</h3>
                             <p>CONTEUDO 4</p>
                         </div>

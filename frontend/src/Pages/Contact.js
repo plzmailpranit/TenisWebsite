@@ -12,9 +12,9 @@ class Contact extends React.Component {
                         Skontaktuj się z nami!
                     </div>
                     <form>
-                        <input name="name" type="text" class="feedback-input" placeholder="Imie" />
-                        <input name="email" type="text" class="feedback-input" placeholder="Email" />
-                        <textarea name="text" class="feedback-input" placeholder="Twoja wiadomość"></textarea>
+                        <input name="name" type="text" className="feedback-input" placeholder="Imie" />
+                        <input name="email" type="text" className="feedback-input" placeholder="Email" />
+                        <textarea name="text" className="feedback-input" placeholder="Twoja wiadomość"></textarea>
                         <input type="submit" value="Wyślij" />
                     </form>
                 </div>
