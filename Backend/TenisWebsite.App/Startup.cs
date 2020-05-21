@@ -24,7 +24,6 @@ using TenisWebsite.Api.Middlewares;
 using TenisWebsite.Api.Controllers;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Authentication.Certificate;
-using System.Web.Http;
 using Microsoft.AspNetCore.Cors;
 
 namespace TenisWebsite.Api
