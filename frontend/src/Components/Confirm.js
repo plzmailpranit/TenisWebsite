@@ -15,12 +15,29 @@ function GetURLParameter(sParam) {
 var token = GetURLParameter('Token');
 var userName = GetURLParameter('userName');
 class Confirm extends Component {
+
+
     state = {
         minutes: 0,
         seconds: 10,
     }
 
     componentDidMount() {
+        var usernamee = userName.substring(1);
+        var userNamee = usernamee.substring(0, usernamee.length - 1)
+        var tokeen = token.substring(1);
+        fetch('https://localhost:5001/api/v1/user/ConfirmEmail', {
+            method: 'post',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify({
+                token: tokeen + "==",
+                userName: userNamee
+            })
+        })
         this.myInterval = setInterval(() => {
             const { seconds, minutes } = this.state
 
@@ -42,13 +59,17 @@ class Confirm extends Component {
         }, 1000)
     }
 
+
+
     componentWillUnmount() {
         clearInterval(this.myInterval)
     }
     render() {
         const { minutes, seconds } = this.state
         return (
+
             <div className="Confirm">
+
                 <h2 className="tytul">Twoje konto zostało aktywowane pomyślnie!!</h2>
                 <br />
                 <br />
