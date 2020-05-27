@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 using TenisWebsite.Data.Sql.DAO;
+using TenisWebsite.Data.Sql.DAOConfigurations;
 using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.AspNetCore.Identity;
 
-
-
-
 namespace TenisWebsite.Data.Sql
 {
     public class TenisWebsiteDbContext : IdentityDbContext
     {
         public TenisWebsiteDbContext(DbContextOptions<TenisWebsiteDbContext> options) : base(options) { }
+        public virtual DbSet<AuthorizationCode> AuthorizationCode { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,7 +27,7 @@ namespace TenisWebsite.Data.Sql
                 entity.Property(m => m.NormalizedUserName).HasMaxLength(127);
                 entity.Property(m => m.UserName).HasMaxLength(127);
             });
-           builder.Entity<IdentityRole>(entity => {
+            builder.Entity<IdentityRole>(entity => {
                 entity.Property(m => m.Name).HasMaxLength(127);
                 entity.Property(m => m.NormalizedName).HasMaxLength(127);
             });
@@ -48,9 +48,10 @@ namespace TenisWebsite.Data.Sql
                 entity.Property(m => m.Name).HasMaxLength(127);
 
             });
-            
+            builder.ApplyConfiguration(new AuthorizationCodeConfiguration());
+
         }
-       
+
     }
 
 }
