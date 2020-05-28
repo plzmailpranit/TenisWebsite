@@ -168,6 +168,36 @@ namespace TenisWebsite.Api.Controllers
                 return BadRequest(userStatus);
             }
         }
+        [Route("AddNewAdmin", Name = "AddNewAdmin")]
+        [ValidateModel]
+        [HttpPost]
+        [Authorize(Roles = "Admin, Administrator")]
+        public async Task<IActionResult> AddNewAdmin([FromBody] IServices.Request.ConfirmEmail confirmEmail)
+        {
+            
+            var user = await _userManger.FindByNameAsync(confirmEmail.userName);
+            var result = await _userManger.ConfirmEmailAsync(user, confirmEmail.token);
+            List<string> EroorList = new List<string>();
+            foreach (var erorr in result.Errors)
+            {
+                EroorList.Add(erorr.Description);
+            }
+            var userStatus = new UserViewModel
+            {
+                Errors = EroorList.ToArray(),
+            };
+
+            if (result.Succeeded)
+            {
+                userStatus.Status = "Succes";
+                return Ok(userStatus);
+            }
+            else
+            {
+                userStatus.Status = "Error";
+                return BadRequest(userStatus);
+            }
+        }
 
     }
 }

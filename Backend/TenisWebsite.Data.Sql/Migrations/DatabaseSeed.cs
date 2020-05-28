@@ -18,13 +18,7 @@ namespace TenisWebsite.Data.Sql.Migrations
         }
         public void Seed()
         {
-            var user = new IdentityUser
-            {
-                UserName = "Admin",
-                Email = "abcd1@gmail.com",
-                EmailConfirmed = true,
-            };
-            _userManger.CreateAsync(user, "Admin1234,");
+           
         }
     }
 }

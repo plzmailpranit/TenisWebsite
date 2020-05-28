@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TenisWebsite.Data.Sql;
-using TenisWebsite.Data.Sql.DAO;
+//using TenisWebsite.Data.Sql.DAO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +25,8 @@ using TenisWebsite.Api.Controllers;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Cors;
+using TenisWebsite.Data.Identity;
+using TenisWebsite.Data.Identity.Migrations;
 
 namespace TenisWebsite.Api
 {
@@ -55,6 +57,7 @@ namespace TenisWebsite.Api
                      .AddCertificate();
             services.AddHealthChecks();
 
+            services.AddDbContext<IdentityDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("IdentityDbContext")));
             services.AddDbContext<TenisWebsiteDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("TenisWebsiteDbContext")));
             services.AddIdentity<IdentityUser, IdentityRole>(options=> 
             {
@@ -68,9 +71,10 @@ namespace TenisWebsite.Api
                 options.Password.RequireNonAlphanumeric = true;
                 options.User.AllowedUserNameCharacters = "aπbcÊdeÍfghijkl≥mnÒoÛpqrsútuvwxyzüøA•BC∆DE FGHIJKL£MN—O”PRSåTUWYZèØ1234567890-_$.";
             }) 
-           .AddEntityFrameworkStores<TenisWebsiteDbContext>().AddDefaultTokenProviders();
-            services.AddTransient<DatabaseSeed>();
-            
+           .AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();
+            services.AddTransient<Data.Identity.Migrations.DatabaseSeed>();
+            services.AddTransient<Data.Sql.Migrations.DatabaseSeed>();
+
             services.AddRouting();
             services.AddScoped<IValidator<IServices.Request.CreatUser>, CreateUserValidator>();
             services.AddScoped<IUserService, UserService>();
@@ -89,8 +93,16 @@ namespace TenisWebsite.Api
            
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
+                var context = serviceScope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+                var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Identity.Migrations.DatabaseSeed>();
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                databaseSeed.Seed();
+            }
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
                 var context = serviceScope.ServiceProvider.GetRequiredService<TenisWebsiteDbContext>();
-                var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<DatabaseSeed>();
+                var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Sql.Migrations.DatabaseSeed>();
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
                 databaseSeed.Seed();

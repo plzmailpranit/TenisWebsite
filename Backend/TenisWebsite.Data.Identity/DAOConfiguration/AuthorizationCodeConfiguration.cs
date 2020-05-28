@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TenisWebsite.Data.Sql.DAO;
+using TenisWebsite.Data.Identity.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace TenisWebsite.Data.Sql.DAOConfigurations
+namespace TenisWebsite.Data.Identity.DAOConfigurations
 {
     class AuthorizationCodeConfiguration : IEntityTypeConfiguration<AuthorizationCode>
     {
@@ -19,3 +19,4 @@ namespace TenisWebsite.Data.Sql.DAOConfigurations
 
     }
 }
+

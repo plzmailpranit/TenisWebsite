@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 
-namespace TenisWebsite.Data.Sql.DAO
+namespace TenisWebsite.Data.Identity.DAO
 {
     public class AuthorizationCode
     {
