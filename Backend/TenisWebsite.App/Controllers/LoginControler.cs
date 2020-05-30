@@ -34,13 +34,7 @@ namespace TenisWebsite.Api.Controllers
             _userService = userService;
         }
 
-        [ValidateModel]
-        public async Task<IActionResult> Post([FromBody] IServices.Request.CreatUser createUser)
-        {
-            var user = await _userService.CreateUser(createUser);
-
-            return Created(user.Id.ToString(),UserToUserViewModelsMapper.UserToUserViewModelMapper.UserToUserViewModel("ok"));
-        }
+       
 
         [Route("userExists/{userName}", Name = "UserExist")]
         [HttpGet]
@@ -56,6 +50,7 @@ namespace TenisWebsite.Api.Controllers
 
 
         [Route("login", Name = "LoginUser")]
+        [ValidateModel]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody]IServices.Request.LoginUser loginUser)
         {
@@ -103,12 +98,19 @@ namespace TenisWebsite.Api.Controllers
             return BadRequest(userStatus);
         }
 
+       [ValidateModel]
+        public async Task<IActionResult> Post([FromBody] IServices.Request.CreatUser createUser)
+        {
+            var user = await _userService.CreateUser(createUser);
+
+            return Created(user.Id.ToString(), UserToUserViewModelsMapper.UserToUserViewModelMapper.UserToUserViewModel("ok"));
+        }
+
         [Route("Register", Name = "RegisterUser")]
-        [ValidateModel]
         [HttpPost]
+        [ValidateModel]
         public async Task<IActionResult> Register([FromBody] IServices.Request.CreatUser createUser)
         {
-
             var user = new IdentityUser
             {
                 UserName =createUser.UserName,
@@ -168,15 +170,44 @@ namespace TenisWebsite.Api.Controllers
                 return BadRequest(userStatus);
             }
         }
-        [Route("AddNewAdmin", Name = "AddNewAdmin")]
+         [Route("AddNewAdmin/{userName}", Name = "AddNewAdmin")]
+         [ValidateModel]
+         [HttpPost]
+         [Authorize(Roles = "Administrator")]
+         public async Task<IActionResult> AddNewAdminstrator(string userName)
+         {
+            var user =await _userManger.FindByNameAsync(userName);
+            var result= await _userManger.AddToRoleAsync(user, "Administrator");
+            List<string> EroorList = new List<string>();
+             foreach (var erorr in result.Errors)
+             {
+                 EroorList.Add(erorr.Description);
+             }
+             var userStatus = new UserViewModel
+             {
+                 Errors = EroorList.ToArray(),
+             };
+
+             if (result.Succeeded)
+             {
+                 userStatus.Status = "Succes";
+                 return Ok(userStatus);
+             }
+             else
+             {
+                 userStatus.Status = "Error";
+                 return BadRequest(userStatus);
+             }
+         }
+        [Route("AddNewAdmin/{userName}", Name = "AddNewAdmin")]
         [ValidateModel]
         [HttpPost]
-        [Authorize(Roles = "Admin, Administrator")]
-        public async Task<IActionResult> AddNewAdmin([FromBody] IServices.Request.ConfirmEmail confirmEmail)
+        [Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> AddNewAdmin(string userName)
         {
-            
-            var user = await _userManger.FindByNameAsync(confirmEmail.userName);
-            var result = await _userManger.ConfirmEmailAsync(user, confirmEmail.token);
+            var user = await _userManger.FindByNameAsync(userName);
+            var result = await _userManger.AddToRoleAsync(user, "Admin");
+
             List<string> EroorList = new List<string>();
             foreach (var erorr in result.Errors)
             {
@@ -198,6 +229,8 @@ namespace TenisWebsite.Api.Controllers
                 return BadRequest(userStatus);
             }
         }
+
+       
 
     }
 }

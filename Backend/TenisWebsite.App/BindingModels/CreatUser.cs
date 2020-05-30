@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TenisWebsite.Api.BindingModels
 {
-    public class CreatUser //Cokolwiek, gdziekolwiek
+    public class CreatUser 
     {
         [Required]
         [Display(Name = "Login")]

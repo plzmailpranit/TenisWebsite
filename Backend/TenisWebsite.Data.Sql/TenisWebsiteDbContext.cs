@@ -18,10 +18,18 @@ namespace TenisWebsite.Data.Sql
         public TenisWebsiteDbContext(DbContextOptions<TenisWebsiteDbContext> options) : base(options) { }
 
         public virtual DbSet<CompetitorData> CompetitorData { get; set; }
+        public virtual DbSet<League> League { get; set; }
+        public virtual DbSet<Match> Match { get; set; }
+        public virtual DbSet<LeagueTable> LeagueTable { get; set; }
+        public virtual DbSet<RankingTable> RankingTable { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new CompetitorDataConfiguration());
+            builder.ApplyConfiguration(new LeagueConfiguration());
+            builder.ApplyConfiguration(new LeagueTableConfiguration());
+            builder.ApplyConfiguration(new MatchConfiguration());
+            builder.ApplyConfiguration(new RankingTableConfiguration());
         }
 
     }

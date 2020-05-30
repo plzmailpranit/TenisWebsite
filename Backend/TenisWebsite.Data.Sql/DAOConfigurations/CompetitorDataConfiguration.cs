@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TenisWebsite.Data.Sql.DAO;
 
+
 namespace TenisWebsite.Data.Sql.DAOConfigurations
 {
     class CompetitorDataConfiguration : IEntityTypeConfiguration<CompetitorData>
@@ -15,6 +16,11 @@ namespace TenisWebsite.Data.Sql.DAOConfigurations
             builder.Property(c => c.FirstName).IsRequired();
             builder.Property(c => c.LastName).IsRequired();
             builder.Property(c => c.UserId).HasColumnType("varchar(767)");
+
+            builder.HasOne(x => x.League)
+               .WithMany(x => x.CompetitorDatas)
+               .OnDelete(DeleteBehavior.Restrict)
+               .HasForeignKey(x => x.LeagueId);
         }
 
     }

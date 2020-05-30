@@ -7,6 +7,6 @@ namespace TenisWebsite.IData.User
 {
     public interface IUserRepository
     {
-        Task<int> AddUser(TenisWebsite.Domain.User.User user);
+        Task<int> AddUser(Domain.User.User user);
     }
 }

@@ -34,7 +34,14 @@ namespace TenisWebsite.Data.Identity.Migrations
                 Email = "abcd1@gmail.com",
                 EmailConfirmed = true,
             };
+            var user1 = new IdentityUser
+            {
+                UserName = "Test",
+                Email = "test@gmail.com",
+                EmailConfirmed = true,
+            };
             await _userManger.CreateAsync(user, "Admin1234,");
+             await _userManger.CreateAsync(user1, "Admin1234,");
             await _userManger.AddToRoleAsync(user, "Administrator");
         }
     }

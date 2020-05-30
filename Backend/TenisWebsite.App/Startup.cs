@@ -18,6 +18,11 @@ using TenisWebsite.Api.Validation;
 using TenisWebsite.IServices.User;
 using TenisWebsite.Services.User;
 using TenisWebsite.IData.User;
+using TenisWebsite.IServices.Code;
+using TenisWebsite.Services.Code;
+using TenisWebsite.Services.Code;
+using TenisWebsite.IData.Code;
+using TenisWebsite.Data.Sql.Code;
 using TenisWebsite.Data.Sql.Migrations;
 using TenisWebsite.Data.Sql.User;
 using TenisWebsite.Api.Middlewares;
@@ -79,6 +84,8 @@ namespace TenisWebsite.Api
             services.AddScoped<IValidator<IServices.Request.CreatUser>, CreateUserValidator>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<ICodeService, CodeService>();
+            services.AddScoped<ICodeRepository, CodeRepository>();
             services.AddControllers();            
             services.AddApiVersioning(o =>
             {
