@@ -35,149 +35,154 @@ function Info() {
     }
     return (
         <Wrapper>
-            <div className="WynikiRespo">
-                <div className="TitleResults">
-                    <br></br>
-                    <h1><b>TWÓJ PANEL WYNIKÓW</b></h1>
-                </div>
-                <br />
-                <div className="row">
-                    <div className="col-md-6">
-                        <div className="RankingResults">
-                            <h2>    Ranking</h2>
-                            <table className="table3" >
-                                <tbody>
-                                    <tr>
-                                        <th>Pozycja </th>
-                                        <th>Imie </th>
-                                        <th>Nazwisko </th>
-                                        <th> </th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Janusz</td>
-                                        <td>Nosacz</td>
-                                        <td><form className="s">
-                                            <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button>
-                                        </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Tadeusz</td>
-                                        <td>Kiszka</td>
-                                        <td>  <form className="s"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Pjoter</td>
-                                        <td>Ojpjoter</td>
-                                        <td> To ty </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Pjoter</td>
-                                        <td>Ojpjoter</td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="LeagueResults">
-                            <h2>Liga</h2>
-                            <table className="table3" >
-                                <tbody>
-                                    <tr>
-                                        <th>W dniu </th>
-                                        <th>Przeciwko </th>
-                                        <th> </th>
-                                        <th> </th>
-                                    </tr>
-                                    <tr>
-                                        <td>12.04.2020</td>
-                                        <td>Janusz Nosacz</td>
-                                        <td></td>
-                                        <td><form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td>17.04.2020</td>
-                                        <td>Tadeusz Kiszka</td>
-                                        <td> </td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>20.04.2020</td>
-                                        <td>Pjoter Ojpjoter</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>01.05.2020</td>
-                                        <td>Pjoter Wookurla</td>
-                                        <td></td>
-                                        <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <Modal
-                        isOpen={modalIsOpen}
-                        onAfterOpen={afterOpenModal}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        contentLabel="Example Modal"
-                    >
-                        <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik spotkania</h2>
-                        <WriteResult />
-
-
-                    </Modal>
-                </div >
+            <div className="TitleResults">
+                <br></br>
+                <h1><b>TWÓJ PANEL WYNIKÓW</b></h1>
             </div>
+            <br />
+            <div className="row">
+                <div className="col-md-6">
+
+                    <div className="RankingResults">
+                        <h2>    Ranking</h2>
+                        <table className="table3" >
+                            <tbody>
+                                <tr>
+                                    <th>Pozycja </th>
+                                    <th>Imie </th>
+                                    <th>Nazwisko </th>
+                                    <th> </th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Janusz</td>
+                                    <td>Nosacz</td>
+                                    <td><form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Tadeusz</td>
+                                    <td>Kiszka</td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Pjoter</td>
+                                    <td>Ojpjoter</td>
+                                    <td>  To ty</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>Pjoter</td>
+                                    <td>Ojpjoter</td>
+                                    <td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+                <div className="col-md-6">
+                    <div className="Upper">
+                        <h2>Liga</h2>
+                    </div>
+                    <div className="LeagueResults">
+
+                        <table className="table3" >
+                            <tbody>
+                                <tr>
+                                    <th>W dniu </th>
+                                    <th>Przeciwko </th>
+                                    <th> </th>
+                                    <th> </th>
+                                </tr>
+                                <tr>
+                                    <td>12.04.2020</td>
+                                    <td>Janusz Nosacz</td>
+                                    <td></td>
+                                    <td><form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+                                <tr>
+                                    <td>17.04.2020</td>
+                                    <td>Tadeusz Kiszka</td>
+                                    <td> </td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>20.04.2020</td>
+                                    <td>Pjoter Ojpjoter</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+
+                                <tr>
+                                    <td>01.05.2020</td>
+                                    <td>Pjoter Wookurla</td>
+                                    <td></td>
+                                    <td>  <form className="form-inline"> <button onClick={openModal} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div className="Bottom">
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik spotkania</h2>
+                    <WriteResult />
+
+
+                </Modal>
+            </div >
+
         </Wrapper >
     )
 }

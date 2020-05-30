@@ -10,7 +10,8 @@ class SignUp extends Component {
         this.state = {
             UserName: '',
             Email: '',
-            Password: ''
+            Password: '',
+            Code: '',
 
         }
 
@@ -18,6 +19,7 @@ class SignUp extends Component {
         this.Email = this.Email.bind(this);
         this.Password = this.Password.bind(this);
         this.register = this.register.bind(this);
+        this.Code = this.Code.bind(this);
     }
     UserName(event) {
         this.setState({ UserName: event.target.value })
@@ -27,6 +29,9 @@ class SignUp extends Component {
     }
     Password(event) {
         this.setState({ Password: event.target.value })
+    }
+    Code(event) {
+        this.setState({ Code: event.target.value })
     }
 
     register(event) {
@@ -41,7 +46,8 @@ class SignUp extends Component {
             body: JSON.stringify({
                 UserName: this.state.UserName,
                 Password: this.state.Password,
-                Email: this.state.Email
+                Email: this.state.Email,
+                Code: this.state.Code,
             })
         }).then((status) => status.json())
 
@@ -68,6 +74,7 @@ class SignUp extends Component {
                     <h2 class="form-box__title">Rejestracja:</h2>
                     <input class="form__text-input" onChange={this.UserName} type="text" placeholder="Login" pattern="[A-Za-z0-9-]{3,99}" title="Login musi miec przynajmniej 3 znaki" required />
                     <input class="form__text-input" onChange={this.Email} type="e-mail" placeholder="Adres e-mail" pattern="[A-Za-z0-9-.,]{2,}@[A-Za-z0-9-]{2,}[.]{1}[a-zA-Z]{2,}" title="Podaj swój adres email" required />
+                    <input class="form__text-input" onChange={this.Code} type="e-mail" placeholder="Kod dostępu" title="Podaj kod dostępu" required />
                     <input class="form__text-input" onChange={this.Password} type="password" id="password" placeholder="Hasło" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                         title="Hasło musi zawierać małą jak i duzą litere,znak specjalny oraz zawierać minimum 8 znaków" required />
 
