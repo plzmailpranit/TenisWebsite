@@ -42,7 +42,7 @@ class Login extends Component {
                 }
                 else {
                     alert('Zalogowano poprawnie!');
-                    window.location.replace("http://localhost:3000/AppLogged/Profil");
+                    window.location.replace("http://localhost:3000/AddCode");
                 }
             })
     }
