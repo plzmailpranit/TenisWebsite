@@ -47,7 +47,7 @@ namespace TenisWebsite.Data.Sql.Code
                     SetsLoss = 0,
                     Points = 0,
                     Position = position,
-                    LeagueId = 0
+                    LeagueId = code.LegueId
 
                 };
                 await _context.AddAsync(league);
@@ -71,7 +71,7 @@ namespace TenisWebsite.Data.Sql.Code
             }
 
             await _context.SaveChangesAsync();
-            return 0;
+            return competitor.CompetitorDataId;
         }
     }
 }

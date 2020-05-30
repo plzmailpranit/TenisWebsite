@@ -10,6 +10,7 @@ namespace TenisWebsite.Data.Identity.DAO
         public int AuthorizationCodeId { get; set; }
         public string Key { get; set; }
         public string UserId { get; set; }
+        public int CompetitorId { get; set; }
 
     }
 }

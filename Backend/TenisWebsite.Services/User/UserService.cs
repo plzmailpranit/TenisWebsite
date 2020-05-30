@@ -18,11 +18,11 @@ namespace TenisWebsite.Services.User
             _userRepository = userRepository;
         }
 
-        public async Task<Domain.User.User> CreateUser(CreatUser createUser)
+        public async Task<int> CreateUser(CreatUser createUser)
         {
-            var user = new Domain.User.User(createUser.UserName, createUser.Email, createUser.Password);
-            user.Id = await _userRepository.AddUser(user);
-            return user;
+            var user = new Domain.User.User(createUser.UserName, createUser.Email, createUser.Password,createUser.Code);
+            int Id = await _userRepository.AddUser(user);
+            return Id;
         }
     }
 }

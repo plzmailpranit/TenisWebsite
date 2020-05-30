@@ -98,13 +98,6 @@ namespace TenisWebsite.Api.Controllers
             return BadRequest(userStatus);
         }
 
-       [ValidateModel]
-        public async Task<IActionResult> Post([FromBody] IServices.Request.CreatUser createUser)
-        {
-            var user = await _userService.CreateUser(createUser);
-
-            return Created(user.Id.ToString(), UserToUserViewModelsMapper.UserToUserViewModelMapper.UserToUserViewModel("ok"));
-        }
 
         [Route("Register", Name = "RegisterUser")]
         [HttpPost]
@@ -116,9 +109,22 @@ namespace TenisWebsite.Api.Controllers
                 UserName =createUser.UserName,
                 Email = createUser.Email,
             };
-            var result = await _userManger.CreateAsync(user, createUser.Password);
-
             List<string> EroorList = new List<string>();
+            var result = await _userManger.CreateAsync(user, createUser.Password);
+            var Competitor = await _userService.CreateUser(createUser);
+            if (Competitor == 0) await _userManger.AddToRoleAsync(user, "Competitor");
+            else if(Competitor==-2)
+            {
+                await _userManger.DeleteAsync(user);
+                EroorList.Add("Code Already Taken");
+            }
+            else
+            {
+                await _userManger.DeleteAsync(user);
+                EroorList.Add("Bad Code");
+            }
+
+            
             foreach (var erorr in result.Errors)
             {
                 EroorList.Add(erorr.Description);
@@ -128,7 +134,7 @@ namespace TenisWebsite.Api.Controllers
                 Errors = EroorList.ToArray(),
             };
            
-            if (result.Succeeded)
+            if (result.Succeeded && Competitor==0)
             {
                 userStatus.Status = "Succes";
                 string token=await _userManger.GenerateEmailConfirmationTokenAsync(user);

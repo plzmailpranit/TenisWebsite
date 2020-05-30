@@ -9,6 +9,6 @@ namespace TenisWebsite.IServices.User
 {
     public interface IUserService
     {
-        Task<TenisWebsite.Domain.User.User> CreateUser(CreatUser createUser);
+        Task<int> CreateUser(CreatUser createUser);
     }
 }

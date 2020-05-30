@@ -11,14 +11,16 @@ namespace TenisWebsite.Domain.User
         public string Email { get; private set; }
 
         public string Password { get; private set; }
+        public string Code { get; set; }
 
 
-        public User(string userName, string email, string password)
+        public User(string userName, string email, string password,string code)
         {
 
             UserName = userName;
             Email = email;
             Password = password;
+            Code = code;
 
         }
     }

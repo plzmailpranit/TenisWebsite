@@ -30,21 +30,32 @@ namespace TenisWebsite.Api.Controllers
 
         [Route("AddNewCompetitor", Name = "AddNewCompetitor")]
         [HttpPost]
-       // [Authorize(Roles = "Administrator, Admin")]
+       [Authorize(Roles = "Administrator, Admin")]
         public async Task<IActionResult> AddNewCompetitor([FromBody] IServices.Request.AddCompetitor competitor)
         {
             List<string> errors = new List<string>();
-            AuthorizationCode authorization = new AuthorizationCode
-            {
-                Key = competitor.confirmationCode
-            };
-            var code = _identityDbContext.AuthorizationCode.Where(x => x.Key == competitor.confirmationCode).FirstOrDefault();
-            if (code != null) errors.Add("Code Already Exist");
-            await _identityDbContext.AddAsync(authorization);
-            await _identityDbContext.SaveChangesAsync();
+           
+            
+            
             int result = await _codeService.CreateCode(competitor);
             if (result == -1) errors.Add("Legue Not Exist");
-            else if (result != 0) errors.Add("Unknow Erroe");
+            else if (result < 0) errors.Add("Unknow Error");
+            else
+            {
+                var code = _identityDbContext.AuthorizationCode.Where(x => x.Key == competitor.confirmationCode).FirstOrDefault();
+                if (code != null) errors.Add("Code Already Exist");
+                else
+                {
+                    AuthorizationCode authorization = new AuthorizationCode
+                    {
+                        Key = competitor.confirmationCode,
+                        CompetitorId= result   
+                    };
+
+                    await _identityDbContext.AddAsync(authorization);
+                    await _identityDbContext.SaveChangesAsync();
+                }
+            }
             if (errors.Count == 0)
             {
                 UserViewModel userViewModel = new UserViewModel
