@@ -176,7 +176,7 @@ namespace TenisWebsite.Api.Controllers
                 return BadRequest(userStatus);
             }
         }
-         [Route("AddNewAdmin/{userName}", Name = "AddNewAdmin")]
+         [Route("AddNewAdminstrator/{userName}", Name = "AddNewAdminstrator")]
          [ValidateModel]
          [HttpPost]
          [Authorize(Roles = "Administrator")]
@@ -235,8 +235,21 @@ namespace TenisWebsite.Api.Controllers
                 return BadRequest(userStatus);
             }
         }
+        [Route("CheckRole", Name = "CheckRole")]
+        [ValidateModel]
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> CheckRole()
+        {
+            
+            var user = await _userManger.GetUserAsync(User);
+            var result = await _userManger.GetRolesAsync(user);
 
-       
+            return Ok(result);
+
+        }
+
+
 
     }
 }
