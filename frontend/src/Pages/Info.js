@@ -17,16 +17,16 @@ function Info() {
 
                     <p className="tekst">
                         <h2>Regulamin:</h2>
-                        <p>1. Graj jak Pablo</p>
-                        <p>2. Nie serwuj za mocno (dziury porobisz)</p>
-                        <p>3. Dopuszczalna waga gracza 100kg (dziury porobisz grubasie)</p>
-                        <p>4. Sprzataj po sobie</p>
-                        <p>5. Nie wywalaj pilek za plot Czarek</p>
-                        <p>6. Jak cos zepsujesz zglos (i see u (o_o) )</p>
-                        <p>7. Zarzadca ma zawsze racje</p>
-                        <p>8. Jesli zarzadca nie ma racji patrz na pkt 7</p>
-                        <p>9. Regulamin jest kozacki, jak nie pasuje to ...</p>
-                        <p>10. Have Fun!</p>
+                        <p>1. Zarządcą strony jak i kortów jest Stowarzyszenie Tenisa Zdzieszowice.</p>
+                        <p>2. Użytkownikami kortów tenisowych mogą być wyłącznie osoby, które zaakceptowały niniejszy regulamin.</p>
+                        <p>3. Odwołanie rezerwacji powinno nastąpić nie później niż 5 godzin przed umówionym spotkaniem.</p>
+                        <p>4. Zachowaj porządek.</p>
+                        <p>5. Gracze zobowiązani są do gry w obuwiu o podeszwie przystosowanej dla kortu tenisowego.</p>
+                        <p>6. W razie dostrzeżenia nieprawidłowości bądź w przypadku spowodowania szkody należy niezwłocznie zgłosić to zarządowi kortów.</p>
+                        <p>7. Należy zachować się w taki sposób, aby nie zakłócać gry pozostałym uczestnikom.</p>
+                        <p>8. Po zakończonej grze należy </p>
+                        <p>9. W razie nie przestrzegania regulaminu, zarządca uprzywilejowany jest do wyproszenia takich osób lub pociągnąć też je do poniesienia kary w postaci kosztów lub naprawienia szkody.</p> 
+                        <p>10. Skargi oraz wnioski można składać zarządcy obiektu lub członkom do tego przeznaczym.</p>
                     </p>
                 </div>
 
