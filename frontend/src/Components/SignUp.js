@@ -32,9 +32,9 @@ class SignUp extends Component {
         this.setState({ Code: event.target.value })
     }
 
-    register(event) {
-
-        fetch('https://teniswebsite.example.com:5001/api/v1/user/Register', {
+    async register(event) {
+        event.preventDefault();
+        await fetch('https://teniswebsite.example.com:5001/api/v1/user/Register', {
             method: 'post',
             headers: {
                 'Accept': '*/*',
