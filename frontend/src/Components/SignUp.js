@@ -61,7 +61,7 @@ class SignUp extends Component {
             }
 
             )
-            debugger;
+        debugger;
 
     }
     render() {
