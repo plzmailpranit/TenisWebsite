@@ -13,6 +13,7 @@ body{
     overflow-y:hidden;
     background-image: url(./images/srodek.png);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center; 
     
@@ -23,7 +24,7 @@ body{
     overflow-y:auto;
     background-image: url(./images/srodek.png);
     background-repeat: no-repeat;
-    background-size: 100% 165%;
+    background-size: 100% 100%;
     background-position: center; 
   }
 }
@@ -33,7 +34,7 @@ body{
     overflow-y:auto;
     background-image: url(./images/srodek.png);
     background-repeat: no-repeat;
-    background-size: 100% 243%;
+    background-size: 100% 110%;
     background-position: center; 
   }
 }
