@@ -53,7 +53,7 @@ class SignUp extends Component {
 
                 if (Result.status == 'Succes') {
                     alert('Zarejestrowano pomyslnie')
-                    this.props.history.push("/");
+                    window.location.replace("http://teniswebsite.example.com:3000/");
                 }
                 else {
                     alert('Nazwa uzytkownika badz email jest juz w bazie')

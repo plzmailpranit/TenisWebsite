@@ -48,7 +48,7 @@ class Login extends Component {
                 }
                 else {
                     alert('Zalogowano poprawnie!');
-                    window.location.replace("http://teniswebsite.example.com:3000/AddCode");
+                    window.location.replace("http://teniswebsite.example.com:3000/AppLogged/Profil");
                 }
             })
         fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {

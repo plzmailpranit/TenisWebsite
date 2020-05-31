@@ -22,6 +22,7 @@ class AddConv extends Component {
     }
 
     componentDidMount() {
+
         fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {
             credentials: "include",
             method: 'get',
@@ -31,7 +32,7 @@ class AddConv extends Component {
                 'Access-Control-Allow-Origin': '*',
 
             }
-        }).then((status) => status.json())
+        })
     }
 
 
@@ -55,7 +56,7 @@ class AddConv extends Component {
     }
 
     async InsertCode(event) {
-
+        alert(this.state.legueId)
         event.preventDefault();
         await fetch('https://teniswebsite.example.com:5001/api/v1/code/AddNewCompetitor', {
             credentials: "include",
@@ -70,7 +71,7 @@ class AddConv extends Component {
                 confirmationCode: this.state.confirmationCode,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                legueId: this.state.legueId,
+                legueId: parseInt(this.state.legueId),
                 Ranking: this.state.Ranking,
             })
 

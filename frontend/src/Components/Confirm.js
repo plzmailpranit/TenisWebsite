@@ -27,6 +27,7 @@ class Confirm extends Component {
         var userNamee = usernamee.substring(0, usernamee.length - 1)
         var tokeen = token.substring(1);
         fetch('https://localhost:5001/api/v1/user/ConfirmEmail', {
+            credentials: "include",
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -76,7 +77,7 @@ class Confirm extends Component {
                 <h3>Za chwile zostaniesz przeniesiony na strone główną</h3>
                 <br />
                 {minutes === 0 && seconds === 0
-                    ? window.location.replace("http://localhost:3000/")
+                    ? window.location.replace("http://teniswebsite.example.com:3000/")
                     : <h1> {seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
             </div>
