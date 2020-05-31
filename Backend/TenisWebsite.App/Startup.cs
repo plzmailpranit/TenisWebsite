@@ -32,6 +32,7 @@ using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Cors;
 using TenisWebsite.Data.Identity;
 using TenisWebsite.Data.Identity.Migrations;
+using Org.BouncyCastle.Crypto.Tls;
 
 namespace TenisWebsite.Api
 {
@@ -51,10 +52,11 @@ namespace TenisWebsite.Api
                 options.AddDefaultPolicy(
                                   builder =>
                                   {
-                                      builder.WithOrigins("file://");
-                                      builder.AllowAnyOrigin();
+                                      builder.WithOrigins("http://localhost:3000", "null", "http://teniswebsite.example.com:3000");
                                       builder.AllowAnyMethod();
                                       builder.AllowAnyHeader();
+                                      builder.AllowCredentials();
+                                      
                                   });
             });
             services.AddAuthentication(
