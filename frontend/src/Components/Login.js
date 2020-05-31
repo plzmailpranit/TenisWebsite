@@ -27,7 +27,7 @@ class Login extends Component {
     async login(event) {
 
         event.preventDefault();
-        await fetch('https://teniswebsite.example.com:5001/api/v1/user/Login', {
+        await fetch('http://teniswebsite.example.com:5000/api/v1/user/Login', {
             credentials: "include",
             method: 'post',
             headers: {
@@ -50,7 +50,7 @@ class Login extends Component {
                     alert('Zalogowano poprawnie!');
                 }
             })
-        fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {
+        fetch('http://teniswebsite.example.com:5000/api/v1/user/CheckRole', {
             credentials: "include",
             method: 'get',
             headers: {
