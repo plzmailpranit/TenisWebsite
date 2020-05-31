@@ -4,24 +4,91 @@
 <h1>The XMLHttpRequest Object</h1>
 
 <button type="button" onclick="loadDoc()">Request data</button>
+<button type="button2" onclick="loadDoc1()">Request data</button>
 
 <p id="demo"></p>
 
 
 <script>
+  
 function loadDoc() {
-  var xhttp = new XMLHttpRequest();
+  
  
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("POST", "https://localhost:5001/api/v1/user/Register", true);
-  xhttp.setRequestHeader("Content-Type", "application/json");
-  xhttp.setRequestHeader("Accept", "*/*");
-  xhttp.setRequestHeader("CORS", "Access-Control-Allow-Origin");
-  xhttp.send(JSON.stringify({"username": "abcde1","password":"Admin1234,","Email": "pawel.damrath@gmail.com"}));
+  await fetch('https://subdomain.example.com:5001/api/v1/user/Login', {
+           
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                
+            },
+           
+            
+            credentials: 'include',
+            method: 'post',
+            body: JSON.stringify({
+                UserName: "admin",
+                Password: "Admin1234,"
+            })
+        }).then((status) => status.json())
+
+            .then((Result) => {
+                if (Result.status == 'Error') {
+                    alert('Niepoprawny login lub hasło!');
+                }
+                else {
+                    alert('Zalogowano poprawnie!');
+                }
+            })
+    await fetch('https://subdomain.example.com:5001/api/v1/user/Login', {
+           
+           headers: {
+               'Accept': 'application/json',
+               'Content-Type': 'application/json'
+               
+           },
+          
+           
+           credentials: 'include',
+           method: 'post',
+           body: JSON.stringify({
+               UserName: "admin",
+               Password: "Admin1234,"
+           })
+       }).then((status) => status.json())
+
+           .then((Result) => {
+               if (Result.status == 'Error') {
+                   alert('Niepoprawny login lub hasło!');
+               }
+               else {
+                   alert('Zalogowano poprawnie!');
+               }
+           })
+
+}
+function loadDoc1() {
+ 
+  fetch('https://subdomain.example.com:5001/api/v1/user/CheckRole', {
+            
+           
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                
+            },
+            credentials: 'include',
+             method: 'get'
+        }).then((status) => status.json())
+
+            .then((Result) => {
+                if (Result.status == 'Error') {
+                    alert('Niepoprawny login lub hasło!');
+                }
+                else {
+                    alert('Zalogowano poprawnie!');
+                }
+            })
+
 }
 </script>
 

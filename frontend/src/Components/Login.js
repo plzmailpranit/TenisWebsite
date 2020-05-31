@@ -22,13 +22,15 @@ class Login extends Component {
         this.setState({ Password: event.target.value })
     }
     login(event) {
-        debugger;
-        fetch('https://localhost:5001/api/v1/user/Login', {
+        
+        fetch('https://teniswebsite.example.com:5001/api/v1/user/Login', {
+            credentials: "include",
             method: 'post',
             headers: {
                 'Accept': '*/*',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                
             },
             body: JSON.stringify({
                 UserName: this.state.UserName,
@@ -42,9 +44,20 @@ class Login extends Component {
                 }
                 else {
                     alert('Zalogowano poprawnie!');
-                    window.location.replace("http://localhost:3000/AddCode");
                 }
             })
+            debugger;
+        fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {
+            credentials: "include",
+            method: 'get',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                
+            }
+        }).then((status) => status.json())
+        debugger;
     }
 
     render() {
