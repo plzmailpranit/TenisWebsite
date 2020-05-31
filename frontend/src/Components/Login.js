@@ -12,7 +12,7 @@ class Login extends Component {
 
         this.Password = this.Password.bind(this);
         this.UserName = this.UserName.bind(this);
-        this.login = this.login.bind(this);
+         this.login = this.login.bind(this);
     }
 
     UserName(event) {
@@ -21,9 +21,13 @@ class Login extends Component {
     Password(event) {
         this.setState({ Password: event.target.value })
     }
-    login(event) {
-        
-        fetch('https://teniswebsite.example.com:5001/api/v1/user/Login', {
+  
+      
+
+    async login(event) {
+
+        event.preventDefault();
+        await fetch('https://teniswebsite.example.com:5001/api/v1/user/Login', {
             credentials: "include",
             method: 'post',
             headers: {
@@ -46,7 +50,6 @@ class Login extends Component {
                     alert('Zalogowano poprawnie!');
                 }
             })
-            debugger;
         fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {
             credentials: "include",
             method: 'get',
@@ -57,7 +60,6 @@ class Login extends Component {
                 
             }
         }).then((status) => status.json())
-        debugger;
     }
 
     render() {

@@ -34,7 +34,7 @@ class SignUp extends Component {
 
     register(event) {
 
-        fetch('https://localhost:5001/api/v1/user/Register', {
+        fetch('https://teniswebsite.example.com:5001/api/v1/user/Register', {
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -61,6 +61,7 @@ class SignUp extends Component {
             }
 
             )
+            debugger;
 
     }
     render() {
