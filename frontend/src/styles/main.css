@@ -412,7 +412,7 @@ img.zdjecie{
       .LeagueResults{
         background-color: rgba(41, 40, 40, 0.6);
         padding: 10px 0px 10px 0px;
-        height: 55%;
+        height: 43%;
         margin-left: 5%;
         margin-right: 5%;
         font-size: 1em;
@@ -428,7 +428,7 @@ img.zdjecie{
       .RankingResults{
         background-color: rgba(41, 40, 40, 0.6);
         padding: 10px 0px 10px 0px;
-        height: 55%;
+        height: 57%;
         margin-left: 5%;
         font-size: 1em;
         color: white;
@@ -436,20 +436,43 @@ img.zdjecie{
         text-align: justify;
         font-family: Comic Sans MS, Comic Sans, cursive;
       }
+      @media only screen and (max-width: 750px){
+        .RankingResults{
+          background-color: rgba(41, 40, 40, 0.6);
+          padding: 0px 0px 0px 0px;
+          height: 95%;
+          margin-left: 5%;
+          margin-right: 9%;
+          font-size: 1em;
+          color: white;
+          width: 95%;
+          text-align: justify;
+          font-family: Comic Sans MS, Comic Sans, cursive;
+        }
+        }
       .RankingResults h2{
         padding: 2%;
       }
+      .look h2{
+        padding: 2%;
+        color: white;
+      }
+      .look{
+        background-color: rgba(41, 40, 40, 0.6);
+        color: whitesmoke;
+        padding: 10px 0px 0px 15px;
+      }
+
       .Confirm{
         text-align: center;
         font-family: Comic Sans MS, Comic Sans, cursive;
         margin-top: 2%;
         color: white;
-        
       }
       .table3{
-        width: 92%;
+        width: 90%;
         overflow-y: scroll;
-        margin: 0% 5% 10% 5%;
+        margin: 0% 5% 5% 5%;
         text-align: center;
         column-gap: 5rem;
         table-layout: fixed;
@@ -461,7 +484,7 @@ img.zdjecie{
           
             font-size: 0.9em;
             height: 4vw;
-            padding: 1px 5px 1px 4px;
+            padding: 0px 5px 1px 4px;
             text-align: center;
             vertical-align: top;
             font-weight: bolder;
@@ -479,7 +502,7 @@ img.zdjecie{
         }
         .table3 tbody th{
           background-image: linear-gradient(180deg, gray, white);
-            padding: 20px 10px 10px 35px;
+            padding: 20px 10px 10px 30px;
             color: white;
             font-size:1em;
             text-shadow: 2px 2px 2px black;
@@ -491,7 +514,7 @@ img.zdjecie{
           border-style: solid;
           border-color: black;
           border-radius: 10%;
-        
+          font-size: 0.9em;
         }
         .table3 button:hover{
           background-color: rgba(209, 209, 209, 0.8);
@@ -503,29 +526,90 @@ img.zdjecie{
         .table3 tbody tr:nth-child(5) td:nth-child(4){
         height: 3em;
         }
-        .Sety{
+        .Upper
+        {
+        float: left;
+        background-color: rgba(41, 40, 40, 0.6);
+        padding: 10px 0px 10px 0px;
+        height: 9%;
+        margin-left: 5%;
+        font-size: 1em;
+        color: white;
+        width: 90%;
+        text-align: justify;
+        font-family: Comic Sans MS, Comic Sans, cursive;
+      }
+      .Upper h2
+      {
+        padding: 2% 0% 0% 2%;
+        color: white;
+      }
+      .Bottom
+      {
+        float: left;
+        background-color: rgba(41, 40, 40, 0.6);
+        padding: 10px 0px 10px 0px;
+        height: 5%;
+        margin-left: 5%;
+        width: 90%;
+      }
+      
+      .Sety{
+        text-align: center;
+      }
+
+      .Sety input{
+          width: 15%;
+          height: 3vw;
           text-align: center;
-        }
-        .Sety input{
-            width: 15%;
-            height: 3vw;
-            text-align: center;
-            border: 3px solid orange;
-            border-radius: 15px;
-        }
-        .Sety input:hover{
-          border: 3px solid black;
-          background-color: white;
-          
-         }
-        .Sety input:focus{
-         border: 3px solid black;
-         background-color: white;
-        }
-        .WynikiRespo{
-          margin-bottom: 5%;
-        }
-        .btn{
-          width: 100%;
-          font-size: 100%;
-        }
+          border: 3px solid orange;
+          border-radius: 15px;
+      }
+
+      .Sety input:hover{
+        border: 3px solid black;
+        background-color: white;
+       }
+
+      .Sety input:focus{
+       border: 3px solid black;
+       background-color: white;
+      }
+
+      .WynikiRespo{
+        margin-bottom: 5em;
+      }
+
+      .btn{
+        width: 100%;
+        font-size: 100%;
+      }
+  .AdminPanel{
+    margin-left: 40%;
+    text-align: center;
+    align-items: center;
+  }
+  .addcode button{
+    width: 80%;
+    height: 60px;
+    padding: 1%;
+    border-radius: 20px;
+    font-weight: bolder;
+    border: 4px solid  white;
+    background:rgba(184, 184, 184, .6);
+  } 
+   .addcode {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .addcode button:hover{
+    border: 4px solid  #000000;;
+    background-color: white;
+  }
+  .radioRank{
+    font-size: larger;
+    font-weight: bolder;
+  }

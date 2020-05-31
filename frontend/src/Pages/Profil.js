@@ -47,7 +47,7 @@ function Info() {
                         <h4>Dostepność</h4>
                         <br />
                         <form className="form-inline">
-                            <button onClick={openModal} className="btn" type="button" id="myBtn">Edytuj profil</button>
+                            <button onClick={openModal} className="btTn" type="button" id="myBtn">Edytuj profil</button>
                         </form>
                     </div>
 

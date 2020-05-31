@@ -14,7 +14,8 @@ import AppLogged from './AppLogged';
 import Profil from './Pages/Profil';
 import Results from './Pages/Results';
 import NavbarLogged from './Components/NavbarLogged';
-import { AuthProvider } from './Config/Auth'
+import { AuthProvider } from './Config/Auth';
+import AddCode from './Pages/AddCode';
 
 const App = () => {
 
@@ -43,7 +44,6 @@ const App = () => {
                     <Route path="/AppLogged/Table" component={Table} />
                     <Route path="/AppLogged/Profil" component={Profil} />
                     <Route path="/AppLogged/Results" component={Results} />
-
                   </Switch>
                 </animated.div>
               ))}
@@ -65,7 +65,7 @@ const App = () => {
                   <Route path="/Contact" component={Contact} />
                   <Route path="/Info" component={Info} />
                   <Route path="/Table" component={Table} />
-                  <Route path="/Confirm" component={Confirm} />
+                  <Route path="/AddCode" component={AddCode} />
                 </Switch>
               </animated.div>
             ))}
