@@ -66,6 +66,7 @@ const App = () => {
                   <Route path="/Info" component={Info} />
                   <Route path="/Table" component={Table} />
                   <Route path="/AddCode" component={AddCode} />
+                  <Route path="/Confirm" component={Confirm} />
                 </Switch>
               </animated.div>
             ))}
