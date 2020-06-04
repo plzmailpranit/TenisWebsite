@@ -34,28 +34,29 @@ namespace TenisWebsite.Api.Controllers
         public async Task<IActionResult> AddNewCompetitor([FromBody] IServices.Request.AddCompetitor competitor)
         {
             List<string> errors = new List<string>();
-           
-            
-            
-            int result = await _codeService.CreateCode(competitor);
-            if (result == -1) errors.Add("Legue Not Exist");
-            else if (result < 0) errors.Add("Unknow Error");
-            else
-            {
-                var code = _identityDbContext.AuthorizationCode.Where(x => x.Key == competitor.confirmationCode).FirstOrDefault();
-                if (code != null) errors.Add("Code Already Exist");
-                else
-                {
-                    AuthorizationCode authorization = new AuthorizationCode
-                    {
-                        Key = competitor.confirmationCode,
-                        CompetitorId= result   
-                    };
 
-                    await _identityDbContext.AddAsync(authorization);
-                    await _identityDbContext.SaveChangesAsync();
+
+            var code = _identityDbContext.AuthorizationCode.Where(x => x.Key == competitor.confirmationCode).FirstOrDefault();
+            if (code != null) errors.Add("Code Already Exist");
+            else 
+                {
+                    int result = await _codeService.CreateCode(competitor);
+                    if (result == -1) errors.Add("Legue Not Exist");
+                    else if (result < 0) errors.Add("Unknow Error");
+                    else
+                    {
+
+                        AuthorizationCode authorization = new AuthorizationCode
+                        {
+                            Key = competitor.confirmationCode,
+                            CompetitorId = result
+                        };
+
+                        await _identityDbContext.AddAsync(authorization);
+                        await _identityDbContext.SaveChangesAsync();
+
+                    }
                 }
-            }
             if (errors.Count == 0)
             {
                 UserViewModel userViewModel = new UserViewModel
