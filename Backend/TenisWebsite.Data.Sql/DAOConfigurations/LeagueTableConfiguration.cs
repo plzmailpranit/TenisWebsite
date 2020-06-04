@@ -13,7 +13,7 @@ namespace TenisWebsite.Data.Sql.DAOConfigurations
         {
             builder.Property(c => c.LeagueTableId).IsRequired();
             builder.Property(c => c.MatechesWon).IsRequired();
-            builder.Property(c => c.MetchesLoss).IsRequired();
+            builder.Property(c => c.MatchesLoss).IsRequired();
             builder.Property(c => c.SetsLoss).IsRequired();
             builder.Property(c => c.SetsWon).IsRequired();
             builder.Property(c => c.CompetitorDataId).IsRequired();

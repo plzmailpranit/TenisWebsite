@@ -42,7 +42,7 @@ namespace TenisWebsite.Data.Sql.Code
                 {
                     CompetitorDataId = competitor.CompetitorDataId,
                     MatechesWon = 0,
-                    MetchesLoss = 0,
+                    MatchesLoss = 0,
                     SetsWon = 0,
                     SetsLoss = 0,
                     Points = 0,
