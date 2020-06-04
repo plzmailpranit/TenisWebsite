@@ -87,11 +87,11 @@ class WriteResult extends Component {
                 </div>
                 <div class="Sety">
                     <h5>Set 1</h5>
-                    <p> <b>Wpisujący</b>  <input class="form__text-input" onChange={this.set1} type="text" placeholder="W1 : W2" required />  <b>Przeciwnik</b> </p>
+                    <p> <b>Wpisujący</b>  <input class="form__text-input" onChange={this.set1} type="text" placeholder="W1 : W2" pattern="[0-7]{1}\:[0-7]{1}" title="Wpisz wynik w postaci TwojeGemy:GemyPrzeciwnika" required />  <b>Przeciwnik</b> </p>
                     <h5>Set 2</h5>
                     <p>  <b>Wpisujący</b>  <input class="form__text-input" onChange={this.set2} type="text" placeholder="W1 : W2" pattern="[0-7]{1}\:[0-7]{1}" title="Wpisz wynik w postaci TwojeGemy:GemyPrzeciwnika" required />  <b>Przeciwnik</b></p>
                     <h5>Set 3</h5>
-                    <p> <b>Wpisujący</b>   <input class="form__text-input" onChange={this.set3} type="text" placeholder="W1 : W2" pattern="[0-7]{1}\:[0-7]{1}" title="Wpisz wynik w postaci TwojeGemy:GemyPrzeciwnika" required />  <b>Przeciwnik</b></p>
+                    <p> <b>Wpisujący</b>   <input class="form__text-input" onChange={this.set3} type="text" placeholder="W1 : W2" pattern="[0-7]{1}\:[0-7]{1}" title="Wpisz wynik w postaci TwojeGemy:GemyPrzeciwnika" />  <b>Przeciwnik</b></p>
                 </div>
                 <div className="Save">
                     <button  >Zapisz wynik</button>

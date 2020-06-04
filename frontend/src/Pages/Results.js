@@ -3,6 +3,7 @@ import Wrapper from './Wrapper'
 import Modal from 'react-modal'
 import '../styles/main.css';
 import WriteResult from '../Components/WriteResult'
+import WriteResultRanking from '../Components/WriteResultRanking'
 import MoreInfo from '../Components/MoreInfo'
 const customStyles = {
     content: {
@@ -42,9 +43,6 @@ function Info() {
     function openModal() {
         setIsOpen(true);
     }
-    function openModal2() {
-        setIsOpen(true);
-    }
     function afterOpenModal() {
         subtitle.style.color = 'black';
     }
@@ -64,6 +62,17 @@ function Info() {
     function closeModal2() {
         setIsOpen2(false);
     }
+    const [modalIsOpen3, setIsOpen3] = React.useState(false);
+    function openModal3() {
+        setIsOpen3(true);
+    }
+    function afterOpenModal3() {
+        subtitle.style.color = 'black';
+    }
+
+    function closeModal3() {
+        setIsOpen3(false);
+    }
     return (
         <Wrapper>
             <div className="TitleResults">
@@ -77,7 +86,7 @@ function Info() {
                     <div className="RankingResults">
                         <h2>    Ranking</h2>
                         <div className="szok">
-                            <button onClick={openModal} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik rankingu</button>
+                            <button onClick={openModal3} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik rankingu</button>
                         </div>
                         <table className="table3" >
                             <tbody>
@@ -212,7 +221,7 @@ function Info() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik spotkania</h2>
+                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik ligowy</h2>
                     <WriteResult />
 
 
@@ -223,12 +232,26 @@ function Info() {
                     isOpen={modalIsOpen2}
                     onAfterOpen={afterOpenModal2}
                     onRequestClose={closeModal2}
-                    style={customStyles2    }
+                    style={customStyles2}
                     contentLabel="Example Modal"
                 >
                     <h2 ref={_subtitle => (subtitle = _subtitle)}>Informacje o przeciwniku</h2>
 
                     <MoreInfo />
+
+                </Modal>
+            </div >
+            <div>
+                <Modal
+                    isOpen={modalIsOpen3}
+                    onAfterOpen={afterOpenModal3}
+                    onRequestClose={closeModal3}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik rankingowy</h2>
+
+                    <WriteResultRanking />
 
                 </Modal>
             </div >
