@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using TenisWebsite.Data.Sql.DAO;
+using TenisWebsite.Domain.Result;
 
 namespace TenisWebsite.Data.Sql.Result
 {
@@ -20,7 +21,30 @@ namespace TenisWebsite.Data.Sql.Result
             _context = context;
 
         }
+        public async Task<CompetitorPosition> DisplayCompetitorPosition(string userId)
+        {
+            var user = await _context.CompetitorData.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            var legue = await _context.League.Where(x => x.LeagueId == user.LeagueId).Select(x=>x.Name).SingleOrDefaultAsync() ;
+            var leguePosition = await _context.LeagueTable.Where(x => x.CompetitorDataId == user.CompetitorDataId).Select(x=>x.Position).SingleOrDefaultAsync();
+            var rankingPosition = await _context.RankingTable.Where(x => x.CompetitorDataId == user.CompetitorDataId).Select(x => x.Position).SingleOrDefaultAsync();
+            CompetitorPosition competitorPosition = new CompetitorPosition
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                LeaugeName = legue,
+                LeguePosition = leguePosition,
+                RankingPosition = rankingPosition
+            };
+            return competitorPosition;   
+        }
 
+        public async Task<List<Domain.Result.CompetitorData>> DisplayCompetitor(string userId)
+        {
+            var user = await _context.CompetitorData.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            var result =await _context.CompetitorData.Where(x => x.LeagueId == user.LeagueId && x.CompetitorDataId != user.CompetitorDataId).ToListAsync();
+            var TheListOfObjectsB = result.Select(a => new Domain.Result.CompetitorData () { CompetitorId=a.CompetitorDataId,FirstName=a.FirstName,LastName= a.LastName }).ToList();
+            return TheListOfObjectsB;
+        }
         public async Task<int> AddResult(Domain.Result.Result result, string userId)
         {
             string[] resultScoreset1 = result.Set1.Split(":");
@@ -148,5 +172,7 @@ namespace TenisWebsite.Data.Sql.Result
             }
             return ResultCorrect;
         }
+
+       
     }
 }
