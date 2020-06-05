@@ -35,8 +35,7 @@ namespace TenisWebsite.Data.Sql.Result
                 LeguePosition = leguePosition,
                 RankingPosition = rankingPosition
             };
-            return competitorPosition;
-
+            return competitorPosition;   
         }
 
         public async Task<List<Domain.Result.CompetitorData>> DisplayCompetitor(string userId)
