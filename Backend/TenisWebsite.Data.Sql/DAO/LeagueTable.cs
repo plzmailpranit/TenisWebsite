@@ -8,7 +8,7 @@ namespace TenisWebsite.Data.Sql.DAO
     {
         public int LeagueTableId { get; set; }
         public int MatechesWon { get; set; }
-        public int MetchesLoss { get; set; }
+        public int MatchesLoss { get; set; }
         public int SetsWon { get; set; }
         public int SetsLoss { get; set; }
         public int CompetitorDataId { get; set; }

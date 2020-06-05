@@ -20,7 +20,6 @@ using TenisWebsite.Services.User;
 using TenisWebsite.IData.User;
 using TenisWebsite.IServices.Code;
 using TenisWebsite.Services.Code;
-using TenisWebsite.Services.Code;
 using TenisWebsite.IData.Code;
 using TenisWebsite.Data.Sql.Code;
 using TenisWebsite.Data.Sql.Migrations;
@@ -33,6 +32,10 @@ using Microsoft.AspNetCore.Cors;
 using TenisWebsite.Data.Identity;
 using TenisWebsite.Data.Identity.Migrations;
 using Org.BouncyCastle.Crypto.Tls;
+using TenisWebsite.IServices.Result;
+using TenisWebsite.Services.Result;
+using TenisWebsite.IData.Result;
+using TenisWebsite.Data.Sql.Result;
 
 namespace TenisWebsite.Api
 {
@@ -88,6 +91,8 @@ namespace TenisWebsite.Api
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddScoped<ICodeService, CodeService>();
             services.AddScoped<ICodeRepository, CodeRepository>();
+            services.AddScoped<IResultService, ResultService>();
+            services.AddScoped<IResultRepository, ResultRepository>();
             services.AddControllers();            
             services.AddApiVersioning(o =>
             {
@@ -104,33 +109,28 @@ namespace TenisWebsite.Api
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<IdentityDbContext>();
                 var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Identity.Migrations.DatabaseSeed>();
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                databaseSeed.Seed();
+          //     context.Database.EnsureDeleted();
+           //   context.Database.EnsureCreated();
+            //   databaseSeed.Seed();
             }
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<TenisWebsiteDbContext>();
                 var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Sql.Migrations.DatabaseSeed>();
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
-                databaseSeed.Seed();
+           //    context.Database.EnsureDeleted();
+         //       context.Database.EnsureCreated();
+        //    databaseSeed.Seed();
             }
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
            
-
             app.UseStaticFiles();
-           
             app.UseRouting();
             app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-
-            
-
 
             app.UseEndpoints(endpoints =>
             {

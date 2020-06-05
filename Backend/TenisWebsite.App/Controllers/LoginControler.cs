@@ -111,19 +111,23 @@ namespace TenisWebsite.Api.Controllers
             };
             List<string> EroorList = new List<string>();
             var result = await _userManger.CreateAsync(user, createUser.Password);
-            var Competitor = await _userService.CreateUser(createUser);
-            if (Competitor == 0) await _userManger.AddToRoleAsync(user, "Competitor");
-            else if(Competitor==-2)
+            int Competitor = 0;
+            if (createUser.Code != null)
             {
-                await _userManger.DeleteAsync(user);
-                EroorList.Add("Code Already Taken");
-            }
-            else
-            {
-                await _userManger.DeleteAsync(user);
-                EroorList.Add("Bad Code");
-            }
+                Competitor = await _userService.CreateUser(createUser);
 
+                if (Competitor == 0) await _userManger.AddToRoleAsync(user, "Competitor");
+                else if (Competitor == -2)
+                {
+                    await _userManger.DeleteAsync(user);
+                    EroorList.Add("Code Already Taken");
+                }
+                else
+                {
+                    await _userManger.DeleteAsync(user);
+                    EroorList.Add("Bad Code");
+                }
+            }
             
             foreach (var erorr in result.Errors)
             {
