@@ -56,7 +56,6 @@ class AddConv extends Component {
     }
 
     async InsertCode(event) {
-        alert(this.state.legueId)
         event.preventDefault();
         await fetch('https://teniswebsite.example.com:5001/api/v1/code/AddNewCompetitor', {
             credentials: "include",
