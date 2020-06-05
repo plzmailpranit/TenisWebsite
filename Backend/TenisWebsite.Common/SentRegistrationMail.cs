@@ -18,7 +18,7 @@ namespace TenisWebsite.Common
             message.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient();
-
+            
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.UseDefaultCredentials = true;

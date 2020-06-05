@@ -21,6 +21,13 @@ namespace TenisWebsite.Data.Sql.Result
 
         }
 
+        public async Task<List<Domain.Result.CompetitorData>> DisplayCompetitor(string userId)
+        {
+            var user = await _context.CompetitorData.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            var result =await _context.CompetitorData.Where(x => x.LeagueId == user.LeagueId && x.CompetitorDataId != user.CompetitorDataId).ToListAsync();
+            var TheListOfObjectsB = result.Select(a => new Domain.Result.CompetitorData () { CompetitorId=a.CompetitorDataId,FirstName=a.FirstName,LastName= a.LastName }).ToList();
+            return TheListOfObjectsB;
+        }
         public async Task<int> AddResult(Domain.Result.Result result, string userId)
         {
             string[] resultScoreset1 = result.Set1.Split(":");
@@ -148,5 +155,7 @@ namespace TenisWebsite.Data.Sql.Result
             }
             return ResultCorrect;
         }
+
+  
     }
 }

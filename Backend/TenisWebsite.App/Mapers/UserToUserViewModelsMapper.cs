@@ -6,20 +6,16 @@ using TenisWebsite.Api.ViewModel;
 
 namespace TenisWebsite.Api.Mapers
 {
-    public class UserToUserViewModelsMapper
-    {
+
         public class UserToUserViewModelMapper
         {
             public static UserViewModel UserToUserViewModel(string status)
             {
                 var userViewModel = new UserViewModel
                 {
-                    Status = status,
-
-
+                    Status = status,                    
                 };
                 return userViewModel;
             }
         }
-    }
 }

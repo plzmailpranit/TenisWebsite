@@ -5,6 +5,7 @@ using TenisWebsite.IServices.Result;
 using System.Threading.Tasks;
 using TenisWebsite.IServices.Request;
 using TenisWebsite.IData.Result;
+using TenisWebsite.Domain.Result;
 
 namespace TenisWebsite.Services.Result
 {
@@ -24,5 +25,11 @@ namespace TenisWebsite.Services.Result
                 int Id = await _resultRepository.AddResult(Result,userId);
                 return Id;
             }
+        public async Task<List<CompetitorData>> DisplaycompetitorData(string userId)
+        {
+           
+            var table = await _resultRepository.DisplayCompetitor(userId);
+            return table;
         }
+    }
 }

@@ -54,6 +54,15 @@ namespace TenisWebsite.Api.Controllers
             return BadRequest(userStatus);
 
         }
+        [Route("ListEnemy", Name = "LiestEnemy")]
+        [HttpGet]
+        [Authorize(Roles = "Competitor")]
+        public async Task<IActionResult> ListEnemy()
+        {
+            var user = await _userManger.GetUserAsync(User);
+            var Compeitors = await _resultService.DisplaycompetitorData(user.Id);
+            return Ok(Compeitors);
+        }
 
-    }
+        }
 }
