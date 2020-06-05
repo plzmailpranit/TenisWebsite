@@ -20,6 +20,22 @@ class AddConv extends Component {
         this.legueId = this.legueId.bind(this);
         this.Ranking = this.Ranking.bind(this);
     }
+
+    componentDidMount() {
+
+        fetch('https://teniswebsite.example.com:5001/api/v1/user/CheckRole', {
+            credentials: "include",
+            method: 'get',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+        })
+    }
+
+
     handleCheckedChange = e => {
         this.setState(prevState => ({ Ranking: !prevState.Ranking }));
     };
@@ -39,10 +55,10 @@ class AddConv extends Component {
         this.setState({ Ranking: event.target.value })
     }
 
-    InsertCode(event) {
-
-        alert(this.match);
-        fetch('https://localhost:5001/api/v1/code/AddNewCompetitior', {
+    async InsertCode(event) {
+        event.preventDefault();
+        await fetch('https://teniswebsite.example.com:5001/api/v1/code/AddNewCompetitor', {
+            credentials: "include",
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -54,7 +70,7 @@ class AddConv extends Component {
                 confirmationCode: this.state.confirmationCode,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
-                legueId: this.state.legueId,
+                legueId: parseInt(this.state.legueId),
                 Ranking: this.state.Ranking,
             })
 
@@ -62,7 +78,6 @@ class AddConv extends Component {
             .then((Result) => {
                 if (Result.status == 'Succes') {
                     alert('Dodano pomyslnie')
-                    this.props.history.push("/");
                 }
                 else {
                     alert('Taki kod juz nadano...')
@@ -73,10 +88,6 @@ class AddConv extends Component {
     }
     render() {
         const { Ranking } = this.state;
-        window.getCookie = function (name) {
-            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            if (match) return match[2];
-        }
         return (
 
             <form onSubmit={this.InsertCode} class="form-box__form form" >

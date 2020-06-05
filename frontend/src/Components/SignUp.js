@@ -32,9 +32,9 @@ class SignUp extends Component {
         this.setState({ Code: event.target.value })
     }
 
-    register(event) {
-
-        fetch('https://localhost:5001/api/v1/user/Register', {
+    async register(event) {
+        event.preventDefault();
+        await fetch('https://teniswebsite.example.com:5001/api/v1/user/Register', {
             method: 'post',
             headers: {
                 'Accept': '*/*',
@@ -53,7 +53,7 @@ class SignUp extends Component {
 
                 if (Result.status == 'Succes') {
                     alert('Zarejestrowano pomyslnie')
-                    this.props.history.push("/");
+                    window.location.replace("http://teniswebsite.example.com:3000/");
                 }
                 else {
                     alert('Nazwa uzytkownika badz email jest juz w bazie')
@@ -61,6 +61,7 @@ class SignUp extends Component {
             }
 
             )
+        debugger;
 
     }
     render() {

@@ -109,17 +109,17 @@ namespace TenisWebsite.Api
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<IdentityDbContext>();
                 var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Identity.Migrations.DatabaseSeed>();
-          //     context.Database.EnsureDeleted();
-           //   context.Database.EnsureCreated();
-            //   databaseSeed.Seed();
+         //       context.Database.EnsureDeleted();
+       //         context.Database.EnsureCreated();
+         //       databaseSeed.Seed();
             }
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetRequiredService<TenisWebsiteDbContext>();
                 var databaseSeed = serviceScope.ServiceProvider.GetRequiredService<Data.Sql.Migrations.DatabaseSeed>();
-           //    context.Database.EnsureDeleted();
-         //       context.Database.EnsureCreated();
-        //    databaseSeed.Seed();
+          //      context.Database.EnsureDeleted();
+             //   context.Database.EnsureCreated();
+            //databaseSeed.Seed();
             }
             if (env.IsDevelopment())
             {

@@ -432,7 +432,7 @@ img.zdjecie{
         margin-left: 5%;
         font-size: 1em;
         color: white;
-        width: 95%;
+        width: 90%;
         text-align: justify;
         font-family: Comic Sans MS, Comic Sans, cursive;
       }
@@ -445,11 +445,12 @@ img.zdjecie{
           margin-right: 9%;
           font-size: 1em;
           color: white;
-          width: 95%;
+          width: 90%;
           text-align: justify;
           font-family: Comic Sans MS, Comic Sans, cursive;
         }
         }
+    
       .RankingResults h2{
         padding: 2%;
       }
@@ -557,13 +558,20 @@ img.zdjecie{
       .Sety{
         text-align: center;
       }
-
+      .Info{
+        text-align: left;
+        margin-top: 10%;
+      }
+      .Info h5{
+        border-top: 2px solid orange;
+      }
       .Sety input{
-          width: 15%;
-          height: 3vw;
+          width: 40%;
+          height: 5vh;
           text-align: center;
           border: 3px solid orange;
           border-radius: 15px;
+          font-size: 80%;
       }
 
       .Sety input:hover{
@@ -612,4 +620,19 @@ img.zdjecie{
   .radioRank{
     font-size: larger;
     font-weight: bolder;
+  }
+  .szok{
+    width: 23%;
+   float: right;
+   margin-right: 5%;
+   font-size: 1%;
+  }
+  .szok button{
+   font-size: small;
+  }
+  .Oponent{
+    align-items: center;
+  }
+  .form-group{
+    width: 50%;
   }
