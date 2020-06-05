@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import '../styles/main.css';
-
+import Select from 'react-select';
 class WriteResult extends Component {
 
     constructor() {
@@ -57,7 +57,7 @@ class WriteResult extends Component {
         this.setState({ league: event.target.value })
     }
     handleChange(event) {
-        this.setState({ value: event.target.value });
+        this.setState({ value: event.value });
     }
 
 
@@ -101,17 +101,21 @@ class WriteResult extends Component {
         if (!this.state.person) {
             return <div>didn't get a person</div>;
         }
+        let option = []
+        if (this.state.person.length > 0) {
+            this.state.person.forEach(role => {
+                let roleDate = {}
+                roleDate.value = role.competitorId
+                roleDate.label = role.lastName
+                option.push(roleDate)
 
+            })
+        }
         return (
             <form onSubmit={this.AddResultLeague} class="form-box__form form">
-                <h5>{}</h5>
+                <h5>Przeciwnik</h5>
                 <div class="form-group">
-                    <select onChange={this.handleChange} class="form-control" id="sel1">
-                        <option value={this.state.person[0].competitorId}>{this.state.person[0].lastName} </option>
-                        <option value={this.state.person[1].competitorId}>{this.state.person[1].lastName}</option>
-                        <option value={this.state.person[2].competitorId}>{this.state.person[2].lastName}</option>
-
-                    </select>
+                    <Select onChange={this.handleChange} options={option} />
                 </div>
                 <div class="Sety">
                     <h5>Set 1</h5>
