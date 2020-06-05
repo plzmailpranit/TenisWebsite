@@ -10,5 +10,6 @@ namespace TenisWebsite.IData.Result
     {
         Task<int> AddResult(Domain.Result.Result result, string userId);
         Task<List<CompetitorData>> DisplayCompetitor( string userId);
+        Task<CompetitorPosition> DisplayCompetitorPosition(string userId);
     }
 }

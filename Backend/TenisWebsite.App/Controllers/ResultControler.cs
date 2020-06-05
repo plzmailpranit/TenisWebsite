@@ -63,6 +63,14 @@ namespace TenisWebsite.Api.Controllers
             var Compeitors = await _resultService.DisplaycompetitorData(user.Id);
             return Ok(Compeitors);
         }
-
+        [Route("CompetitorPosition", Name = "CompetitorPosition")]
+        [HttpGet]
+        [Authorize(Roles = "Competitor")]
+        public async Task<IActionResult> CompetitorPosition()
+        {
+            var user = await _userManger.GetUserAsync(User);
+            var Compeitor = await _resultService.DisplayCompetitorName(user.Id);
+            return Ok(Compeitor);
         }
+    }
 }

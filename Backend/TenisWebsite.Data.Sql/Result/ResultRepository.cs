@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using TenisWebsite.Data.Sql.DAO;
+using TenisWebsite.Domain.Result;
 
 namespace TenisWebsite.Data.Sql.Result
 {
@@ -18,6 +19,23 @@ namespace TenisWebsite.Data.Sql.Result
         public ResultRepository(TenisWebsiteDbContext context)
         {
             _context = context;
+
+        }
+        public async Task<CompetitorPosition> DisplayCompetitorPosition(string userId)
+        {
+            var user = await _context.CompetitorData.Where(x => x.UserId == userId).FirstOrDefaultAsync();
+            var legue = await _context.League.Where(x => x.LeagueId == user.LeagueId).Select(x=>x.Name).SingleOrDefaultAsync() ;
+            var leguePosition = await _context.LeagueTable.Where(x => x.CompetitorDataId == user.CompetitorDataId).Select(x=>x.Position).SingleOrDefaultAsync();
+            var rankingPosition = await _context.RankingTable.Where(x => x.CompetitorDataId == user.CompetitorDataId).Select(x => x.Position).SingleOrDefaultAsync();
+            CompetitorPosition competitorPosition = new CompetitorPosition
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                LeaugeName = legue,
+                LeguePosition = leguePosition,
+                RankingPosition = rankingPosition
+            };
+            return competitorPosition;
 
         }
 
@@ -156,6 +174,6 @@ namespace TenisWebsite.Data.Sql.Result
             return ResultCorrect;
         }
 
-  
+       
     }
 }
