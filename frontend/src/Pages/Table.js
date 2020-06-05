@@ -97,11 +97,37 @@ function Table() {
 
                                             </div>
                                             <div className="tab-pane" id="tab_below_2">
-                                                Howdy, I'm in Tab 2.
-                                        </div>
+                                                <table className="table2" >
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Miejsce </th>
+                                                            <th>Imie </th>
+                                                            <th>Nazwisko </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Janusz</td>
+                                                            <td>Nosacz</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <div className="tab-pane" id="tab_below_3">
-                                                Howdy, I'm in Tab 3.
-                                        </div>
+                                                <table className="table2" >
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Miejsce </th>
+                                                            <th>Imie </th>
+                                                            <th>Nazwisko </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Janusz</td>
+                                                            <td>Nosacz</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="ilosctabs">
@@ -291,8 +317,7 @@ function Table() {
                     </div>
                     <div className="tab-pane" id="pag3" role="tabpanel">
                         <div className="sv-tab-panel">
-                            <h3>TAB 3</h3>
-                            <p>CONTEUDO 3</p>
+
                         </div>
                     </div>
                     <div className="tab-pane" id="pag4" role="tabpanel">

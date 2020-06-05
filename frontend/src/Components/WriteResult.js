@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import '../styles/main.css';
 
 class WriteResult extends Component {
+
     constructor() {
         super();
         this.state = {
-            value: '1',
+            value: '',
             enemy: '',
             set1: '',
             set2: '',
             set3: '',
-            league: ''
+            league: '',
+            loading: true,
+            person: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.enemy = this.enemy.bind(this);
@@ -19,6 +22,23 @@ class WriteResult extends Component {
         this.set3 = this.set3.bind(this);
         this.league = this.league.bind(this);
         this.AddResultLeague = this.AddResultLeague.bind(this);
+    }
+
+    async componentDidMount() {
+        var response = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/ListEnemy', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam = await response.json();
+        console.log(exam);
+        this.setState({ person: exam, loading: false });
     }
 
     enemy(event) {
@@ -42,6 +62,7 @@ class WriteResult extends Component {
 
 
     async AddResultLeague(event) {
+        alert(this.state.value)
         event.preventDefault();
         await fetch('https://teniswebsite.example.com:5001/api/v1/Result/AddResult', {
             credentials: "include",
@@ -73,16 +94,23 @@ class WriteResult extends Component {
     }
 
     render() {
+        if (this.state.loading) {
+            return <div>loading...</div>;
+        }
+
+        if (!this.state.person) {
+            return <div>didn't get a person</div>;
+        }
 
         return (
             <form onSubmit={this.AddResultLeague} class="form-box__form form">
-                <h5>Przeciwnik</h5>
+                <h5>{}</h5>
                 <div class="form-group">
-                    <select value={this.state.value} onChange={this.handleChange} class="form-control" id="sel1">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                    <select onChange={this.handleChange} class="form-control" id="sel1">
+                        <option value={this.state.person[0].competitorId}>{this.state.person[0].lastName} </option>
+                        <option value={this.state.person[1].competitorId}>{this.state.person[1].lastName}</option>
+                        <option value={this.state.person[2].competitorId}>{this.state.person[2].lastName}</option>
+
                     </select>
                 </div>
                 <div class="Sety">
