@@ -412,7 +412,8 @@ img.zdjecie{
       .LeagueResults{
         background-color: rgba(41, 40, 40, 0.6);
         padding: 10px 0px 10px 0px;
-        height: 43%;
+        height: 66%;
+        padding-top: 3%;
         margin-left: 5%;
         margin-right: 5%;
         font-size: 1em;
@@ -428,7 +429,7 @@ img.zdjecie{
       .RankingResults{
         background-color: rgba(41, 40, 40, 0.6);
         padding: 10px 0px 10px 0px;
-        height: 57%;
+        height: 80%;
         margin-left: 5%;
         font-size: 1em;
         color: white;
@@ -479,12 +480,12 @@ img.zdjecie{
         table-layout: fixed;
         float: left;
         border: 5px solid black;
-      
+      height: 10vw;
         }
         .table3 td,th {
           
             font-size: 0.9em;
-            height: 4vw;
+            height: 4rem;
             padding: 0px 5px 1px 4px;
             text-align: center;
             vertical-align: top;
@@ -530,6 +531,7 @@ img.zdjecie{
         .Upper
         {
         float: left;
+    
         background-color: rgba(41, 40, 40, 0.6);
         padding: 10px 0px 10px 0px;
         height: 9%;
