@@ -37,226 +37,273 @@ const customStyles2 = {
         fontFamily: "Comic Sans MS, Comic Sans, cursive"
     }
 };
-function Info() {
-    var subtitle;
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    function openModal() {
-        setIsOpen(true);
-    }
-    function afterOpenModal() {
-        subtitle.style.color = 'black';
+class Results extends React.Component {
+    constructor() {
+
+        super();
+        this.state = {
+            open: false,
+            open2: false,
+            open3: false,
+            loading: true,
+            person: [],
+            person2: [],
+            person3: [],
+        }
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+        this.openModal2 = this.openModal2.bind(this);
+        this.closeModal2 = this.closeModal2.bind(this);
+        this.openModal3 = this.openModal3.bind(this);
+        this.closeModal3 = this.closeModal3.bind(this);
+        this.generateTableData1 = this.generateTableData1.bind(this);
+        this.generateTableData2 = this.generateTableData2.bind(this);
     }
 
-    function closeModal() {
-        setIsOpen(false);
+    async componentDidMount() {
+        var response = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/ListEnemy', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam = await response.json();
+        console.log(exam);
+        this.setState({ person: exam, loading: false });
+
+        var response2 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/ListEnemyRanking', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam2 = await response2.json();
+        console.log(exam2);
+        this.setState({ person2: exam2, loading: false });
+
+        var response3 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/CompetitorPosition', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam3 = await response3.json();
+        console.log(exam3);
+        this.setState({ person3: exam3, loading: false });
     }
 
-    const [modalIsOpen2, setIsOpen2] = React.useState(false);
-    function openModal2() {
-        setIsOpen2(true);
+    generateTableData1() {
+        let res = [];
+        let tableData1 = this.state.person;
+        for (var i = 0; i < tableData1.length; i++) {
+            res.push(
+                <tr >
+                    <td key={i + 1}>{i + 1}</td>
+                    <td key={tableData1[i].firstName}>{tableData1[i].firstName}</td>
+                    <td key={tableData1[i].lasttName}>{tableData1[i].lastName}</td>
+                </tr>
+            )
+        }
+        return res;
     }
-    function afterOpenModal2() {
-        subtitle.style.color = 'black';
+    generateTableData2() {
+        let res = [];
+        let tableData2 = this.state.person2;
+        var k;
+        for (var i = 1; i < tableData2.length; i++) {
+            k = i + 1
+            res.push(
+                <tr >
+                    <td key={this.state.person3.rankingPosition - k}>{this.state.person3.rankingPosition - k}</td>
+                    <td key={tableData2[i].firstName}>{tableData2[i].firstName}</td>
+                    <td key={tableData2[i].lasttName}>{tableData2[i].lastName}</td>
+                    <td><form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                </tr>
+            )
+
+        }
+        for (i = 0; i < tableData2.length - i; i++) {
+            k = i + 1
+            res.push(
+                <tr >
+                    <td key={this.state.person3.rankingPosition - k}>{this.state.person3.rankingPosition - k}</td>
+                    <td key={tableData2[i].firstName}>{tableData2[i].firstName}</td>
+                    <td key={tableData2[i].lasttName}>{tableData2[i].lastName}</td>
+                    <td><form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                </tr>
+            )
+
+        }
+        return res;
     }
 
-    function closeModal2() {
-        setIsOpen2(false);
-    }
-    const [modalIsOpen3, setIsOpen3] = React.useState(false);
-    function openModal3() {
-        setIsOpen3(true);
-    }
-    function afterOpenModal3() {
-        subtitle.style.color = 'black';
+    openModal() {
+        this.setState(
+            { open: true });
     }
 
-    function closeModal3() {
-        setIsOpen3(false);
+
+    closeModal() {
+        this.setState(
+            { open: false });
     }
-    return (
-        <Wrapper>
-            <div className="TitleResults">
-                <br></br>
-                <h1><b>TWÓJ PANEL WYNIKÓW</b></h1>
-            </div>
-            <br />
-            <div className="row">
-                <div className="col-md-6">
 
-                    <div className="RankingResults">
-                        <h2>    Ranking</h2>
-                        <div className="szok">
-                            <button onClick={openModal3} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik rankingu</button>
-                        </div>
-                        <table className="table3" >
-                            <tbody>
-                                <tr>
-                                    <th>Pozycja </th>
-                                    <th>Imie </th>
-                                    <th>Nazwisko </th>
-                                    <th> </th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Janusz</td>
-                                    <td>Nosacz</td>
-                                    <td><form className="form-inline"> <button onClick={openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Tadeusz</td>
-                                    <td>Kiszka</td>
-                                    <td>  <form className="form-inline"> <button onClick={openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Pjoter</td>
-                                    <td>Ojpjoter</td>
-                                    <td>  To ty</td>
-                                </tr>
+    openModal2() {
+        this.setState(
+            { open2: true });
+    }
 
-                                <tr>
-                                    <td>4</td>
-                                    <td>Pjoter</td>
-                                    <td>Ojpjoter</td>
-                                    <td> <form className="form-inline"> <button onClick={openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                </tr>
-                            </tbody>
-                        </table>
 
-                    </div>
+    closeModal2() {
+        this.setState(
+            { open2: false });
+    }
+    openModal3() {
+        this.setState(
+            { open3: true });
+    }
 
+
+    closeModal3() {
+        this.setState(
+            { open3: false });
+    }
+    render() {
+        var subtitle;
+        function afterOpenModal() {
+            subtitle.style.color = 'black';
+        }
+        function afterOpenModal2() {
+            subtitle.style.color = 'black';
+        }
+        function afterOpenModal3() {
+            subtitle.style.color = 'black';
+        }
+        return (
+
+            <Wrapper>
+                <div className="TitleResults">
+                    <br></br>
+                    <h1><b>TWÓJ PANEL WYNIKÓW</b></h1>
                 </div>
-                <div className="col-md-6">
-                    <div className="Upper">
-                        <h2>Liga</h2>
-                    </div>
-                    <div className="LeagueResults">
-                        <div className="szok">
-                            <button onClick={openModal} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik ligi</button>
+                <br />
+                <div className="row">
+                    <div className="col-md-6">
+
+                        <div className="RankingResults">
+                            <h2>    Ranking</h2>
+                            <div className="szok">
+                                <button onClick={this.openModal3} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik rankingu</button>
+                            </div>
+                            <table className="table3" >
+                                <tbody>
+                                    <tr>
+                                        <th>Pozycja </th>
+                                        <th>Imie </th>
+                                        <th> Nazwisko </th>
+                                        <th>Szczegóły</th>
+
+                                    </tr>
+                                    {this.generateTableData2()}
+                                    <tr>
+                                        <td>{this.state.person3.rankingPosition}</td>
+                                        <td>{this.state.person3.firstName}</td>
+                                        <td>{this.state.person3.lastName}</td>
+                                        <td>To ty</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                         </div>
-                        <table className="table3" >
-                            <tbody>
-                                <tr>
-                                    <th>W dniu </th>
-                                    <th>Przeciwko </th>
-                                    <th> Wynik </th>
-
-                                </tr>
-                                <tr>
-                                    <td>12.04.2020</td>
-                                    <td>Janusz Nosacz</td>
-                                    <td></td>
-
-                                </tr>
-                                <tr>
-                                    <td>17.04.2020</td>
-                                    <td>Tadeusz Kiszka</td>
-                                    <td> </td>
-
-                                </tr>
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>20.04.2020</td>
-                                    <td>Pjoter Ojpjoter</td>
-                                    <td></td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>01.05.2020</td>
-                                    <td>Pjoter Wookurla</td>
-                                    <td></td>
-
-                                </tr>
-                            </tbody>
-                        </table>
 
                     </div>
-                    <div className="Bottom">
+                    <div className="col-md-6">
+                        <div className="Upper">
+                            <h2>Liga</h2>
+                        </div>
+                        <div className="LeagueResults">
+                            <div className="szok">
+                                <button onClick={this.openModal} className="btn btn-dark" type="button" id="myBtn">Dodaj wynik ligi</button>
+                            </div>
+                            <table className="table3" >
+                                <tbody>
+                                    <tr>
+                                        <th>L.P </th>
+                                        <th>Imie </th>
+                                        <th> Nazwisko </th>
 
+                                    </tr>
+                                    {this.generateTableData1()}
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div className="Bottom">
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                >
-                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik ligowy</h2>
-                    <WriteResult />
+                <div>
+                    <Modal
+                        isOpen={this.state.open}
+                        onAfterOpen={this.afterOpenModal}
+                        onRequestClose={this.closeModal}
+                        style={customStyles}
+                        contentLabel="Example Modal"
+                    >
+                        <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik ligowy</h2>
+                        <WriteResult />
 
 
-                </Modal>
-            </div >
-            <div>
-                <Modal
-                    isOpen={modalIsOpen2}
-                    onAfterOpen={afterOpenModal2}
-                    onRequestClose={closeModal2}
-                    style={customStyles2}
-                    contentLabel="Example Modal"
-                >
-                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Informacje o przeciwniku</h2>
+                    </Modal>
+                </div >
+                <div>
+                    <Modal
+                        isOpen={this.state.open2}
+                        onAfterOpen={this.afterOpenModal2}
+                        onRequestClose={this.closeModal2}
+                        style={customStyles2}
+                        contentLabel="Example Modal"
+                    >
+                        <h2 ref={_subtitle => (subtitle = _subtitle)}>Informacje o przeciwniku</h2>
 
-                    <MoreInfo />
+                        <MoreInfo />
 
-                </Modal>
-            </div >
-            <div>
-                <Modal
-                    isOpen={modalIsOpen3}
-                    onAfterOpen={afterOpenModal3}
-                    onRequestClose={closeModal3}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                >
-                    <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik rankingowy</h2>
+                    </Modal>
+                </div >
+                <div>
+                    <Modal
+                        isOpen={this.state.open3}
+                        onAfterOpen={this.afterOpenModal3}
+                        onRequestClose={this.closeModal3}
+                        style={customStyles}
+                        contentLabel="Example Modal"
+                    >
+                        <h2 ref={_subtitle => (subtitle = _subtitle)}>Zapisz wynik rankingowy</h2>
 
-                    <WriteResultRanking />
+                        <WriteResultRanking />
 
-                </Modal>
-            </div >
+                    </Modal>
+                </div >
 
-        </Wrapper >
-    )
+            </Wrapper >
+        )
+    }
 }
-export default Info;
+export default Results;

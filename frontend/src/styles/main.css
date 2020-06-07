@@ -1,169 +1,170 @@
 .tytul{
-    font-size: 3em;
-    color: whitesmoke;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 5%;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 3em;
+  color: whitesmoke;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 5%;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .tytul2{
-    font-size: 3em;
-    color: whitesmoke;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-right: 5%;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: right;
+  font-size: 3em;
+  color: whitesmoke;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 5%;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: right;
 }
 .tekst{
-  background-color: rgba(41, 40, 40, 0.7);
-  padding: 3%;
-    position: absolute;
-    top: 110px;
-    left: 15%;
-    font-size: 1em;
-    color: white;
-    width: 110%;
-    text-align: justify;
-    font-family: Comic Sans MS, Comic Sans, cursive;
-  }
+background-color: rgba(41, 40, 40, 0.7);
+padding: 3%;
+  position: absolute;
+  top: 110px;
+  left: 15%;
+  font-size: 1em;
+  color: white;
+  width: 110%;
+  text-align: justify;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
 .adres{
-    font-size: 1.5em;
-    text-align: center;
-    font-family: Comic Sans MS, Comic Sans, cursive;
-    margin-bottom: 10%;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  margin-bottom: 10%;
 }
 .imageinfo{
- width: 90%;
- height: 25rem;
- margin-left: 10%;
- border: 3px solid black;
-  
+width: 90%;
+height: 25rem;
+margin-left: 10%;
+border: 3px solid black;
+
 }
 .formtitle{
-    font-family: Comic Sans MS, Comic Sans, cursive;
-    font-size: 3vh;
-    font-weight: bolder;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 3vh;
+  font-weight: bolder;
 }
 .formularz{
-    text-align: center;
-    margin-top: 2%;
-    
+  text-align: center;
+  margin-top: 2%;
+  
 }
 ::placeholder {
-    color: black;
-    opacity: 0.7; /* Firefox */
-  }
-form { max-width:420px;  display: inline-block;    
-    }
-  
-.feedback-input {
-  font-family: Comic Sans MS, Comic Sans, cursive;
-  font-size: 1.5em;
-  border-radius: 15px;
-  background-color: transparent;
-  border:5px solid rgba(255, 255, 255,.7);
-  transition: all 0.3s;
-  padding: 1vh;
-  margin-bottom: 1.5vh;
-  width:100%;
-  box-sizing: border-box;
-  outline:0;
-  background:rgba(184, 184, 184, .6);
+  color: black;
+  opacity: 0.7; /* Firefox */
 }
- 
+form { max-width:420px;  display: inline-block;    
+  }
+
+.feedback-input {
+font-family: Comic Sans MS, Comic Sans, cursive;
+font-size: 1.5em;
+border-radius: 15px;
+background-color: transparent;
+border:5px solid rgba(255, 255, 255,.7);
+transition: all 0.3s;
+padding: 1vh;
+margin-bottom: 1.5vh;
+width:100%;
+box-sizing: border-box;
+outline:0;
+background:rgba(184, 184, 184, .6);
+}
+
 .feedback-input:focus {
- border:5px solid rgb(0, 0, 0); 
+border:5px solid rgb(0, 0, 0); 
 background-color: white;
 color: black;
 }
- 
+
 textarea {
-  height: 20vh;
-  line-height: 150%;
-  resize:vertical;
-  max-height: 200px;
+height: 20vh;
+line-height: 150%;
+resize:vertical;
+max-height: 200px;
 }
- 
+
 [type="submit"] {
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  width: 100%;
-  background:rgb(184, 184, 184);
-  border-radius:10px;
-  border:5px solid rgba(255, 255, 255);
-  cursor:pointer;
-  color:black;
-  font-size:2vh;
-  padding-top:1vh;
-  padding-bottom:1vh;
-  transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
-  opacity: 0.7;
+font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+width: 100%;
+background:rgb(184, 184, 184);
+border-radius:10px;
+border:5px solid rgba(255, 255, 255);
+cursor:pointer;
+color:black;
+font-size:2vh;
+padding-top:1vh;
+padding-bottom:1vh;
+transition: all 0.3s;
+margin-top:-4px;
+font-weight:700;
+opacity: 0.7;
 }
 @media only screen and (max-height: 800px) {
-    .formtitle{
-    font-family: Comic Sans MS, Comic Sans, cursive;
-    font-size: 1.5vw;
-    font-weight: bolder;
-            }
+  .formtitle{
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 1.5vw;
+  font-weight: bolder;
+          }
 }
 
 [type="submit"]:hover { background:rgb(255, 255, 255); color:rgb(0, 0, 0);   border:5px solid rgb(0, 0, 0); opacity: 1;}
 img.zdjecie{
-  width: 25%;
-  border: 4px solid black;
-  border-radius: 50px;
-  margin-left: 8%;
-  margin-top: 8%;
-  float: left;
+width: 30%;
+border: 4px solid black;
+border-radius: 50px;
+margin-left: 20%;
+margin-top: 17%;
+float: left;
 }
 .user{
-  margin-top: 10%;
-  margin-left: 40%;
+margin-top: 18%;
+margin-left: 55%;
 }
 .look{
- 
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-right: 5%;
-  background-color: rgba(184, 184, 184, .6);
-  border: px solid black;
+background-color: rgba(41, 40, 40, 0.6);
+color: whitesmoke;
+margin: 5%;
+border: 2px solid black;
+padding-left: 2%;
+height: 80%;
+
 }
 .menubok{
- 
-  margin-left: 1%;
-  margin-top: 4rem;
-  float: left;
+
+margin-left: 1%;
+margin-top: 4rem;
+float: left;
 }
- 
+
 .vertical-tabs .nav-tabs .nav-link{
-  border-radius: 0;
-  text-align:center;
-  font-size: 1.5vw;
-  font-weight: bolder;
-  border:3.5px solid #000000;
-  color:#fff;
- 
+border-radius: 0;
+text-align:center;
+font-size: 1.5vw;
+font-weight: bolder;
+border:3.5px solid #000000;
+color:#fff;
+
 }
 .vertical-tabs .nav-tabs .nav-link.active{
-  background-image: linear-gradient(180deg, orange, white);
-  color:black;
- 
+background-image: linear-gradient(180deg, orange, white);
+color:black;
+
 }
 .vertical-tabs .tab-content>.active{
-  display:block;
- 
+display:block;
+
 }
 .vertical-tabs .nav.nav-tabs{
-  border-bottom:0;
-  border-right:5px solid #000;
-  display:block;
-  float:left;
-  margin-right:20px;
-  padding-right:15px;
+border-bottom:0;
+border-right:5px solid #000;
+display:block;
+float:left;
+margin-right:20px;
+padding-right:15px;
 }
 .vertical-tabs .sv-tab-panel{
-  height:274px;
-  padding-top:10px;
+height:274px;
+padding-top:10px;
 }
 @media only screen and (max-width: 420px){
 .titulo{font-size: 22px}
@@ -172,467 +173,463 @@ img.zdjecie{
 .vertical-tabs{ padding:8px;}
 }
 .ilosctabs{
-  margin-top: 460pt;
-  margin-bottom: 4%;
-  margin-right: 15%;
-  float: right;
+margin-top: 460pt;
+margin-bottom: 4%;
+margin-right: 15%;
+float: right;
 }
 .ilosctabs ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #c9c6c69f;
-  border:4px solid black ;
- 
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #c9c6c69f;
+border:4px solid black ;
+
 }
 .ilosctabs li {
-  float: left;
-  
+float: left;
+
 }
 .ilosctabs li a {
-  display: block;
-  color: black;
-  font-weight: bold;
- 
-  text-align: center;
-  padding: 16px;
-  text-decoration: none;
+display: block;
+color: black;
+font-weight: bold;
+
+text-align: center;
+padding: 16px;
+text-decoration: none;
 }
 .ilosctabs li a:hover{
- font-weight: bolder;
- border: 3px solid white;
- color: white;
+font-weight: bolder;
+border: 3px solid white;
+color: white;
 }
- 
- 
- 
+
+
+
 .table2{
-  width: 60%;
-  margin-bottom: 1%;
+width: 60%;
+margin-bottom: 1%;
+position: absolute;
+margin-left: 25%;
+margin-top: 3%;
+text-align: center;
+column-gap: 2rem;
+table-layout: fixed;
+float: left;
+border: 5px solid black;
+
+}
+.table2 td,th {
+  
+    font-size: 0,7em;
+    height: 3em;
+    padding: 1px 1px;
+    text-align: center;
+    vertical-align: top;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+.table2 tbody tr:nth-child(even) td {
+    background-color: rgba(255, 255, 255, 0.95)
+}
+.table2 tbody tr:nth-child(odd) td{
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+.table2 tbody th{
+  background-image: linear-gradient(180deg, orange, white);
+    padding: 15px;
+    color: white;
+    font-size:1em;
+    text-shadow: 2px 2px 2px black;
+      
+}
+.table2 tbody tr:hover td{
+    border-top: 2px solid orange;
+    border-bottom: 2px solid orange;
+}
+
+.table1{
+  
+  width: 75%;
+  border-collapse: collapse;
+  margin-top: 1%;
+  margin-bottom: 3%;
   position: absolute;
-  margin-left: 25%;
-  margin-top: 3%;
+  margin-left: 20%;
   text-align: center;
   column-gap: 2rem;
+  vertical-align: center;
   table-layout: fixed;
-  float: left;
-  border: 5px solid black;
-
   }
-  .table2 td,th {
-    
-      font-size: 0,7em;
-      height: 3em;
-      padding: 1px 1px;
-      text-align: center;
-      vertical-align: top;
-      font-weight: bolder;
-      text-align: center;
-      
-  }
-  .table2 tbody tr:nth-child(even) td {
-      background-color: rgba(255, 255, 255, 0.95)
-  }
-  .table2 tbody tr:nth-child(odd) td{
-      background-color: rgba(255, 255, 255, 0.8); 
-  }
-  .table2 tbody th{
-    background-image: linear-gradient(180deg, orange, white);
-      padding: 15px;
-      color: white;
-      font-size:1em;
-      text-shadow: 2px 2px 2px black;
-        
-  }
-  .table2 tbody tr:hover td{
-      border-top: 2px solid orange;
-      border-bottom: 2px solid orange;
-  }
- 
-  .table1{
-    
-    width: 75%;
-    border-collapse: collapse;
-    margin-top: 1%;
-    margin-bottom: 3%;
-    position: absolute;
-    margin-left: 20%;
+  .table1 td,th {
+    width: 0.3em;
+    font-weight: bolder;
     text-align: center;
-    column-gap: 2rem;
-    vertical-align: center;
     table-layout: fixed;
+    vertical-align: top;
+}
+.table1 th{
+  margin-right: 1em;
+  font-size: 0.9vmax;
+}
+.table1 td{
+  padding: 1px 1px;
+  font-size: 1.4vmin;
+  border:2px solid black;
+  height: 3.7rem;
+  width: 3vw;
+  table-layout: fixed;
+  background-color: rgba(235, 233, 233, 0.815);
+}
+.table1 tbody tr:nth-child(2) td:nth-child(2){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(3) td:nth-child(3){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(4) td:nth-child(4){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(5) td:nth-child(5){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(6) td:nth-child(6){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(7) td:nth-child(7){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(8) td:nth-child(8){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(9) td:nth-child(9){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(10) td:nth-child(10){
+  background-color: black;
+}
+.table1 tbody tr:nth-child(11) td:nth-child(11){
+  background-color: black;
+}
+.table1 tbody tr:first-child td{
+  background-color: transparent;
+  border: none;
+}
+.table1 tbody th{
+  background-image: linear-gradient(180deg, orange, white);
+    height: 2.3em;
+    padding: 1em;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: whitesmoke;
+      
+}
+.table1 tbody th:last-child{
+  border-radius: 0px 15px 0px 0px ;
+}
+.table1 td:first-child{
+  background-color: transparent;
+}
+.table1 tbody tr:hover td{
+    border-top: 3px solid orange;
+    border-bottom: 3px solid orange;
+    background-color: rgba(255, 255, 255, 0.918);
+    color: goldenrod;
+    font-weight: 900;
+}
+.table1 tbody tr:hover td:first-child{
+  border-top: none;
+  border-bottom: none;
+}
+
+.user button{
+  display:inline-block;
+  padding:0.5em 1.5em;
+  border:0.3em solid rgb(0, 0, 0);
+  margin:0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  
+  font-weight:700;
+  color:rgb(0, 0, 0);
+  background-color: rgba(184, 184, 184, .8);
+  text-align:center;
+  transition: all 0.6s;
+  }
+  .user button:hover{
+    color:rgb(255, 255, 255);
+    background-color: orange;
     }
-    .table1 td,th {
-      width: 0.3em;
+
+    @media all and (max-width:30em){
+    .user button{
+    display:block;
+    margin:0.4em auto;
+    }
+    }
+
+    .AboutMe {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box; 
+      border: 4px solid #ffc400;;
+      border-radius: 20px;
+      display: inline-block;
+      background:white;
+      transition: all 0.3s;
+    }
+     
+    .AboutMe:focus {
+      border: 4px solid rgb(0, 0, 0);
+    }
+    .Save {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      
+    }
+    .Save button{
+      width: 300%;
+      height: 60px;
+      padding: 1%;
+      border-radius: 20px;
       font-weight: bolder;
-      text-align: center;
-      table-layout: fixed;
-      vertical-align: top;
-  }
-  .table1 th{
-    margin-right: 1em;
-    font-size: 0.9vmax;
-  }
-  .table1 td{
-    padding: 1px 1px;
-    font-size: 1.4vmin;
-    border:2px solid black;
-    height: 3.7rem;
-    width: 3vw;
-    table-layout: fixed;
-    background-color: rgba(235, 233, 233, 0.815);
-  }
-  .table1 tbody tr:nth-child(2) td:nth-child(2){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(3) td:nth-child(3){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(4) td:nth-child(4){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(5) td:nth-child(5){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(6) td:nth-child(6){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(7) td:nth-child(7){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(8) td:nth-child(8){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(9) td:nth-child(9){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(10) td:nth-child(10){
-    background-color: black;
-  }
-  .table1 tbody tr:nth-child(11) td:nth-child(11){
-    background-color: black;
-  }
-  .table1 tbody tr:first-child td{
-    background-color: transparent;
-    border: none;
-  }
-  .table1 tbody th{
-    background-image: linear-gradient(180deg, orange, white);
-      height: 2.3em;
-      padding: 1em;
-      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      color: whitesmoke;
-        
-  }
-  .table1 tbody th:last-child{
-    border-radius: 0px 15px 0px 0px ;
-  }
-  .table1 td:first-child{
-    background-color: transparent;
-  }
-  .table1 tbody tr:hover td{
-      border-top: 3px solid orange;
-      border-bottom: 3px solid orange;
-      background-color: rgba(255, 255, 255, 0.918);
-      color: goldenrod;
-      font-weight: 900;
-  }
-  .table1 tbody tr:hover td:first-child{
-    border-top: none;
-    border-bottom: none;
-  }
-
-  .user button{
-    display:inline-block;
-    padding:0.5em 1.5em;
-    border:0.3em solid rgb(0, 0, 0);
-    margin:0 0.3em 0.3em 0;
-    box-sizing: border-box;
-    text-decoration:none;
-    
-    font-weight:700;
-    color:rgb(0, 0, 0);
-    background-color: rgba(184, 184, 184, .8);
-    text-align:center;
-    transition: all 0.6s;
+      border: 4px solid  #ffc400;
     }
-    .user button:hover{
-      color:rgb(255, 255, 255);
-      background-color: orange;
-      }
-
-      @media all and (max-width:30em){
-      .user button{
-      display:block;
-      margin:0.4em auto;
-      }
-      }
-
-      .AboutMe {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box; 
-        border: 4px solid #ffc400;;
-        border-radius: 20px;
-        display: inline-block;
-        background:white;
-        transition: all 0.3s;
-      }
-       
-      .AboutMe:focus {
-        border: 4px solid rgb(0, 0, 0);
-      }
-      .Save {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        
-      }
-      .Save button{
-        width: 300%;
-        height: 60px;
-        padding: 1%;
-        border-radius: 20px;
-        font-weight: bolder;
-        border: 4px solid  #ffc400;
-      }
-      .Save button:hover{
-        border: 4px solid  #000000;;
-      }
-      .TitleResults{
-        text-align: center;
-      }
-      .TitleResults h1{
-        color: whitesmoke;
-        text-shadow: 2px 2px 2px black;
-      }
-      .LeagueResults{
-        background-color: rgba(41, 40, 40, 0.6);
-        padding: 10px 0px 10px 0px;
-        height: 43%;
-        margin-left: 5%;
-        margin-right: 5%;
-        font-size: 1em;
-        color: white;
-        width: 90%;
-        text-align: justify;
-        font-family: Comic Sans MS, Comic Sans, cursive;
-        overflow-y: auto;
-      }
-      .LeagueResults h2{
-        padding: 2%;
-      }
+    .Save button:hover{
+      border: 4px solid  #000000;;
+    }
+    .TitleResults{
+      text-align: center;
+    }
+    .TitleResults h1{
+      color: whitesmoke;
+      text-shadow: 2px 2px 2px black;
+    }
+    .LeagueResults{
+      background-color: rgba(41, 40, 40, 0.6);
+      padding: 5% 0% 10% 0%;
+      height: 80%;
+      margin-left: 5%;
+      margin-right: 5%;
+      font-size: 1em;
+      color: white;
+      width: 90%;
+      text-align: justify;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      overflow-y: auto;
+    }
+    .LeagueResults h2{
+      padding: 2%;
+    }
+    .RankingResults{
+      background-color: rgba(41, 40, 40, 0.6);
+      padding: 10px 0px 10px 0px;
+      height: 100%;
+      margin-left: 5%;
+      font-size: 1em;
+      color: white;
+      width: 90%;
+      text-align: justify;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+    }
+    @media only screen and (max-width: 750px){
       .RankingResults{
         background-color: rgba(41, 40, 40, 0.6);
-        padding: 10px 0px 10px 0px;
-        height: 57%;
+        padding: 0px 0px 0px 0px;
+        height: 95%;
         margin-left: 5%;
+        margin-right: 9%;
         font-size: 1em;
         color: white;
         width: 90%;
         text-align: justify;
         font-family: Comic Sans MS, Comic Sans, cursive;
       }
-      @media only screen and (max-width: 750px){
-        .RankingResults{
-          background-color: rgba(41, 40, 40, 0.6);
-          padding: 0px 0px 0px 0px;
-          height: 95%;
-          margin-left: 5%;
-          margin-right: 9%;
-          font-size: 1em;
-          color: white;
-          width: 90%;
-          text-align: justify;
-          font-family: Comic Sans MS, Comic Sans, cursive;
-        }
-        }
-    
-      .RankingResults h2{
-        padding: 2%;
       }
-      .look h2{
-        padding: 2%;
-        color: white;
-      }
-      .look{
-        background-color: rgba(41, 40, 40, 0.6);
-        color: whitesmoke;
-        padding: 10px 0px 0px 15px;
-      }
+  
+    .RankingResults h2{
+      padding: 2%;
+    }
+    .look h2{
+      padding: 2%;
+      color: white;
+    }
 
-      .Confirm{
-        text-align: center;
-        font-family: Comic Sans MS, Comic Sans, cursive;
-        margin-top: 2%;
-        color: white;
+    .Confirm{
+      text-align: center;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+      margin-top: 2%;
+      color: white;
+    }
+    .table3{
+      width: 90%;
+      overflow-y: scroll;
+      margin: 0% 5% 5% 5%;
+      text-align: center;
+      column-gap: 5rem;
+      table-layout: fixed;
+      float: left;
+      border: 5px solid black;
+    height: 10vw;
       }
-      .table3{
-        width: 90%;
-        overflow-y: scroll;
-        margin: 0% 5% 5% 5%;
-        text-align: center;
-        column-gap: 5rem;
-        table-layout: fixed;
-        float: left;
-        border: 5px solid black;
-      
-        }
-        .table3 td,th {
-          
-            font-size: 0.9em;
-            height: 4vw;
-            padding: 0px 5px 1px 4px;
-            text-align: center;
-            vertical-align: top;
-            font-weight: bolder;
-            text-align: center;
-            
-        }
-        .table3 td{
-          color: black;
-        }
-        .table3 tbody tr:nth-child(even) td {
-            background-color: rgba(255, 255, 255, 0.95)
-        }
-        .table3 tbody tr:nth-child(odd) td{
-            background-color: rgba(255, 255, 255, 0.8); 
-        }
-        .table3 tbody th{
-          background-image: linear-gradient(180deg, gray, white);
-            padding: 20px 10px 10px 30px;
-            color: white;
-            font-size:1em;
-            text-shadow: 2px 2px 2px black;
-            text-align: left;
-        }
-        .table3 button{
-          margin: 4px;
-          border-width: 3px;
-          border-style: solid;
-          border-color: black;
-          border-radius: 10%;
+      .table3 td,th {
+        
           font-size: 0.9em;
-        }
-        .table3 button:hover{
-          background-color: rgba(209, 209, 209, 0.8);
-        }
-        .table3 tbody tr:hover td{
-            border-top: 2px solid orange;
-            border-bottom: 2px solid orange;
-        }
-        .table3 tbody tr:nth-child(5) td:nth-child(4){
-        height: 3em;
-        }
-        .Upper
-        {
-        float: left;
-        background-color: rgba(41, 40, 40, 0.6);
-        padding: 10px 0px 10px 0px;
-        height: 9%;
-        margin-left: 5%;
-        font-size: 1em;
-        color: white;
-        width: 90%;
-        text-align: justify;
-        font-family: Comic Sans MS, Comic Sans, cursive;
-      }
-      .Upper h2
-      {
-        padding: 2% 0% 0% 2%;
-        color: white;
-      }
-      .Bottom
-      {
-        float: left;
-        background-color: rgba(41, 40, 40, 0.6);
-        padding: 10px 0px 10px 0px;
-        height: 5%;
-        margin-left: 5%;
-        width: 90%;
-      }
-      
-      .Sety{
-        text-align: center;
-      }
-      .Info{
-        text-align: left;
-        margin-top: 10%;
-      }
-      .Info h5{
-        border-top: 2px solid orange;
-      }
-      .Sety input{
-          width: 40%;
-          height: 5vh;
+          height: 4rem;
+          padding: 0px 5px 1px 4px;
           text-align: center;
-          border: 3px solid orange;
-          border-radius: 15px;
-          font-size: 80%;
+          vertical-align: top;
+          font-weight: bolder;
+          text-align: center;
+          
       }
-
-      .Sety input:hover{
-        border: 3px solid black;
-        background-color: white;
-       }
-
-      .Sety input:focus{
-       border: 3px solid black;
-       background-color: white;
+      .table3 td{
+        color: black;
       }
-
-      .WynikiRespo{
-        margin-bottom: 5em;
+      .table3 tbody tr:nth-child(even) td {
+          background-color: rgba(255, 255, 255, 0.95)
       }
-
-      .btn{
-        width: 100%;
-        font-size: 100%;
+      .table3 tbody tr:nth-child(odd) td{
+          background-color: rgba(255, 255, 255, 0.8); 
       }
-  .AdminPanel{
-    margin-left: 40%;
-    text-align: center;
-    align-items: center;
-  }
-  .addcode button{
-    width: 80%;
-    height: 60px;
-    padding: 1%;
-    border-radius: 20px;
-    font-weight: bolder;
-    border: 4px solid  white;
-    background:rgba(184, 184, 184, .6);
-  } 
-   .addcode {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .addcode button:hover{
-    border: 4px solid  #000000;;
-    background-color: white;
-  }
-  .radioRank{
-    font-size: larger;
-    font-weight: bolder;
-  }
-  .szok{
-    width: 23%;
-   float: right;
-   margin-right: 5%;
-   font-size: 1%;
-  }
-  .szok button{
-   font-size: small;
-  }
-  .Oponent{
-    align-items: center;
-  }
-  .form-group{
-    width: 50%;
-  }
+      .table3 tbody th{
+        background-image: linear-gradient(180deg, gray, white);
+          padding: 20px 10px 10px 30px;
+          color: white;
+          font-size:1em;
+          text-shadow: 2px 2px 2px black;
+          text-align: left;
+      }
+      .table3 button{
+        margin: 4px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 10%;
+        font-size: 0.9em;
+      }
+      .table3 button:hover{
+        background-color: rgba(209, 209, 209, 0.8);
+      }
+      .table3 tbody tr:hover td{
+          border-top: 2px solid orange;
+          border-bottom: 2px solid orange;
+      }
+      .table3 tbody tr:nth-child(5) td:nth-child(4){
+      height: 3em;
+      }
+      .Upper
+      {
+      float: left;
+  
+      background-color: rgba(41, 40, 40, 0.6);
+      padding: 10px 0px 10px 0px;
+      height: 9%;
+      margin-left: 5%;
+      font-size: 1em;
+      color: white;
+      width: 90%;
+      text-align: justify;
+      font-family: Comic Sans MS, Comic Sans, cursive;
+    }
+    .Upper h2
+    {
+      padding: 2% 0% 0% 2%;
+      color: white;
+    }
+    .Bottom
+    {
+      float: left;
+      background-color: rgba(41, 40, 40, 0.6);
+      padding: 10px 0px 10px 0px;
+      height: 5%;
+      margin-left: 5%;
+      width: 90%;
+    }
+    
+    .Sety{
+      text-align: center;
+    }
+    .Info{
+      text-align: left;
+      margin-top: 10%;
+    }
+    .Info h5{
+      border-top: 2px solid orange;
+    }
+    .Sety input{
+        width: 40%;
+        height: 5vh;
+        text-align: center;
+        border: 3px solid orange;
+        border-radius: 15px;
+        font-size: 80%;
+    }
+
+    .Sety input:hover{
+      border: 3px solid black;
+      background-color: white;
+     }
+
+    .Sety input:focus{
+     border: 3px solid black;
+     background-color: white;
+    }
+
+    .WynikiRespo{
+      margin-bottom: 5em;
+    }
+
+    .btn{
+      width: 100%;
+      font-size: 100%;
+    }
+.AdminPanel{
+  margin-left: 40%;
+  text-align: center;
+  align-items: center;
+}
+.addcode button{
+  width: 80%;
+  height: 60px;
+  padding: 1%;
+  border-radius: 20px;
+  font-weight: bolder;
+  border: 4px solid  white;
+  background:rgba(184, 184, 184, .6);
+} 
+ .addcode {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.addcode button:hover{
+  border: 4px solid  #000000;;
+  background-color: white;
+}
+.radioRank{
+  font-size: larger;
+  font-weight: bolder;
+}
+.szok{
+  width: 23%;
+ float: right;
+ margin-right: 5%;
+ font-size: 1%;
+}
+.szok button{
+ font-size: small;
+}
+.Oponent{
+  align-items: center;
+}
+.form-group{
+  width: 50%;
+}

@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import '../styles/main.css';
-
+import Select from 'react-select';
 class WriteResult extends Component {
+
     constructor() {
         super();
         this.state = {
-            value: '1',
+            value: '',
             enemy: '',
             set1: '',
             set2: '',
             set3: '',
-            league: ''
+            league: '',
+            loading: true,
+            person: null,
         }
         this.handleChange = this.handleChange.bind(this);
         this.enemy = this.enemy.bind(this);
@@ -19,6 +22,23 @@ class WriteResult extends Component {
         this.set3 = this.set3.bind(this);
         this.league = this.league.bind(this);
         this.AddResultLeague = this.AddResultLeague.bind(this);
+    }
+
+    async componentDidMount() {
+        var response = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/ListEnemy', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam = await response.json();
+        console.log(exam);
+        this.setState({ person: exam, loading: false });
     }
 
     enemy(event) {
@@ -37,7 +57,7 @@ class WriteResult extends Component {
         this.setState({ league: event.target.value })
     }
     handleChange(event) {
-        this.setState({ value: event.target.value });
+        this.setState({ value: event.value });
     }
 
 
@@ -57,7 +77,7 @@ class WriteResult extends Component {
                 set1: this.state.set1,
                 set2: this.state.set2,
                 set3: this.state.set3,
-                league: 1
+                league: true
             })
         }).then((status) => status.json())
 
@@ -73,17 +93,28 @@ class WriteResult extends Component {
     }
 
     render() {
+        if (this.state.loading) {
+            return <div>loading...</div>;
+        }
 
+        if (!this.state.person) {
+            return <div>didn't get a person</div>;
+        }
+        let option = []
+        if (this.state.person.length > 0) {
+            this.state.person.forEach(role => {
+                let roleDate = {}
+                roleDate.value = role.competitorId
+                roleDate.label = role.lastName
+                option.push(roleDate)
+
+            })
+        }
         return (
             <form onSubmit={this.AddResultLeague} class="form-box__form form">
                 <h5>Przeciwnik</h5>
                 <div class="form-group">
-                    <select value={this.state.value} onChange={this.handleChange} class="form-control" id="sel1">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                    <Select onChange={this.handleChange} options={option} />
                 </div>
                 <div class="Sety">
                     <h5>Set 1</h5>
