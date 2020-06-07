@@ -54,13 +54,22 @@ namespace TenisWebsite.Api.Controllers
             return BadRequest(userStatus);
 
         }
-        [Route("ListEnemy", Name = "LiestEnemy")]
+        [Route("ListEnemy", Name = "ListEnemy")]
         [HttpGet]
         [Authorize(Roles = "Competitor")]
         public async Task<IActionResult> ListEnemy()
         {
             var user = await _userManger.GetUserAsync(User);
             var Compeitors = await _resultService.DisplaycompetitorData(user.Id);
+            return Ok(Compeitors);
+        }
+        [Route("ListEnemyRanking", Name = "ListEnemyRanking")]
+        [HttpGet]
+        [Authorize(Roles = "Competitor")]
+        public async Task<IActionResult> ListEnemyRanking()
+        {
+            var user = await _userManger.GetUserAsync(User);
+            var Compeitors = await _resultService.DisplaycompetitorRankingData(user.Id);
             return Ok(Compeitors);
         }
         [Route("CompetitorPosition", Name = "CompetitorPosition")]
@@ -71,6 +80,36 @@ namespace TenisWebsite.Api.Controllers
             var user = await _userManger.GetUserAsync(User);
             var Compeitor = await _resultService.DisplayCompetitorName(user.Id);
             return Ok(Compeitor);
+        }
+        [Route("TableLegue/{LegueId}", Name = "TableLegueS")]
+        [HttpGet]
+        public async Task<IActionResult> TableLegue(int LegueId)
+        {
+            var Table = await _resultService.GetTableLegue(LegueId);
+            return Ok(Table) ;
+        }
+        [Route("TableRanking", Name = "TableRanking")]
+        [HttpGet]
+        public async Task<IActionResult> TableRanking()
+        {
+            var Table = await _resultService.GetTableRanking();
+            return Ok(Table);
+        }
+        [Route("LastMatches", Name = "LastMatches")]
+        [HttpGet]
+        public async Task<IActionResult> LastMatches()
+        {
+            var user = await _userManger.GetUserAsync(User);
+            var Table = await _resultService.GetLastMatches(user.Id);
+            return Ok(Table);
+        }
+        [Route("LastMatchesAll", Name = "LastMatchesAll")]
+        [HttpGet]
+        public async Task<IActionResult> LastMatchesAll()
+        {
+            var user = await _userManger.GetUserAsync(User);
+            var Table = await _resultService.GetLastMatchesAll();
+            return Ok(Table);
         }
     }
 }

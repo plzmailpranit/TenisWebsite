@@ -27,16 +27,37 @@ namespace TenisWebsite.Services.Result
         }
         public async Task<List<CompetitorData>> DisplaycompetitorData(string userId)
         {
-
             var table = await _resultRepository.DisplayCompetitor(userId);
             return table;
-
-
+        }
+        public async Task<List<CompetitorData>> DisplaycompetitorRankingData(string userId)
+        {
+            var table = await _resultRepository.DisplayCompetitorRanking(userId);
+            return table;
         }
         public async Task<CompetitorPosition> DisplayCompetitorName(string userId)
         {
-
             var table = await _resultRepository.DisplayCompetitorPosition(userId);
+            return table;
+        }
+        public async Task<List<LeagueTable>> GetTableLegue(int LegueNumber)
+        {
+            var table = await _resultRepository.GetLegueTable(LegueNumber);
+            return table;
+        }
+        public async Task<List<RankingTable>> GetTableRanking()
+        {
+            var table = await _resultRepository.GetRankingTable();
+            return table;
+        }
+        public async Task<List<DisplayLastMatches>> GetLastMatches(string userId)
+        {
+            var table = await _resultRepository.GetLastMatch(userId);
+            return table;
+        }
+        public async Task<List<DisplayLastMatchesAll>> GetLastMatchesAll()
+        {
+            var table = await _resultRepository.GetLastMatchAll();
             return table;
         }
     }

@@ -31,6 +31,10 @@ namespace TenisWebsite.Data.Sql.DAOConfigurations
                .WithMany(x => x.Winners)
                .OnDelete(DeleteBehavior.Restrict)
                .HasForeignKey(x => x.Winner);
+            builder.HasOne(x => x.League)
+              .WithMany(x => x.Matches)
+              .OnDelete(DeleteBehavior.Restrict)
+              .HasForeignKey(x => x.LeagueId);
         }
     }
 }
