@@ -133,6 +133,9 @@ class Table extends React.Component {
                             <li className="nav-item">
                                 <a className="nav-link" data-toggle="tab" href="#pag4" role="tab" aria-controls="settings">III Liga</a>
                             </li>
+                            <li className="nav-item">
+                                <a className="nav-link" data-toggle="tab" href="#pag5" role="tab" aria-controls="results">Wyniki</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -318,6 +321,24 @@ class Table extends React.Component {
                                             <th>Punkty </th>
                                         </tr>
                                         {this.generateTableData3()}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div className="tab-pane" id="pag5" role="tabpanel">
+                            <div className="sv-tab-panel">
+                                <table className="table2" >
+                                    <tbody>
+                                        <tr>
+                                            <th>Gracz 1 </th>
+                                            <th>Set1 </th>
+                                            <th>Set2 </th>
+                                            <th>Set3 </th>
+                                            <th>Gracz 2 </th>
+                                            <th>Typ rozgrywek </th>
+
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>

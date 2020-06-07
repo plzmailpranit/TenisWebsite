@@ -47,6 +47,8 @@ class Results extends React.Component {
             open3: false,
             loading: true,
             person: [],
+            person2: [],
+            person3: [],
         }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -55,6 +57,7 @@ class Results extends React.Component {
         this.openModal3 = this.openModal3.bind(this);
         this.closeModal3 = this.closeModal3.bind(this);
         this.generateTableData1 = this.generateTableData1.bind(this);
+        this.generateTableData2 = this.generateTableData2.bind(this);
     }
 
     async componentDidMount() {
@@ -72,6 +75,36 @@ class Results extends React.Component {
         var exam = await response.json();
         console.log(exam);
         this.setState({ person: exam, loading: false });
+
+        var response2 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/ListEnemyRanking', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam2 = await response2.json();
+        console.log(exam2);
+        this.setState({ person2: exam2, loading: false });
+
+        var response3 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/CompetitorPosition', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+
+            }
+
+        })
+        var exam3 = await response3.json();
+        console.log(exam3);
+        this.setState({ person3: exam3, loading: false });
     }
 
     generateTableData1() {
@@ -85,6 +118,36 @@ class Results extends React.Component {
                     <td key={tableData1[i].lasttName}>{tableData1[i].lastName}</td>
                 </tr>
             )
+        }
+        return res;
+    }
+    generateTableData2() {
+        let res = [];
+        let tableData2 = this.state.person2;
+        var k;
+        for (var i = 1; i < tableData2.length; i++) {
+            k = i + 1
+            res.push(
+                <tr >
+                    <td key={this.state.person3.rankingPosition - k}>{this.state.person3.rankingPosition - k}</td>
+                    <td key={tableData2[i].firstName}>{tableData2[i].firstName}</td>
+                    <td key={tableData2[i].lasttName}>{tableData2[i].lastName}</td>
+                    <td><form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                </tr>
+            )
+
+        }
+        for (i = 0; i < tableData2.length - i; i++) {
+            k = i + 1
+            res.push(
+                <tr >
+                    <td key={this.state.person3.rankingPosition - k}>{this.state.person3.rankingPosition - k}</td>
+                    <td key={tableData2[i].firstName}>{tableData2[i].firstName}</td>
+                    <td key={tableData2[i].lasttName}>{tableData2[i].lastName}</td>
+                    <td><form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                </tr>
+            )
+
         }
         return res;
     }
@@ -118,7 +181,7 @@ class Results extends React.Component {
 
     closeModal3() {
         this.setState(
-            { open3: true });
+            { open3: false });
     }
     render() {
         var subtitle;
@@ -152,33 +215,16 @@ class Results extends React.Component {
                                     <tr>
                                         <th>Pozycja </th>
                                         <th>Imie </th>
-                                        <th>Nazwisko </th>
-                                        <th> </th>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Janusz</td>
-                                        <td>Nosacz</td>
-                                        <td><form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Tadeusz</td>
-                                        <td>Kiszka</td>
-                                        <td>  <form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Pjoter</td>
-                                        <td>Ojpjoter</td>
-                                        <td>  To ty</td>
-                                    </tr>
+                                        <th> Nazwisko </th>
+                                        <th>Szczegóły</th>
 
+                                    </tr>
+                                    {this.generateTableData2()}
                                     <tr>
-                                        <td>4</td>
-                                        <td>Pjoter</td>
-                                        <td>Ojpjoter</td>
-                                        <td> <form className="form-inline"> <button onClick={this.openModal2} className="btn" type="button" id="myBtn">Szczegóły</button> </form></td>
+                                        <td>{this.state.person3.rankingPosition}</td>
+                                        <td>{this.state.person3.firstName}</td>
+                                        <td>{this.state.person3.lastName}</td>
+                                        <td>To ty</td>
                                     </tr>
                                 </tbody>
                             </table>

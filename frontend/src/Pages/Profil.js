@@ -76,9 +76,8 @@ class Info extends React.Component {
         return (
             <Wrapper>
                 <div className="row">
-                    <div className="col-6">
-
-                        <img className="zdjecie" src={alfie} alt="" />
+                    <div className="col-5">
+                        <   img className="zdjecie" src={alfie} alt="" />
                         <div className="user">
                             <h2> {this.state.person.firstName} {this.state.person.lastName}</h2>
                             <h4>Wiek (opcjonalnie)</h4>
@@ -88,46 +87,33 @@ class Info extends React.Component {
                                 <button onClick={this.openModal} className="btTn" type="button" id="myBtn">Edytuj profil</button>
                             </form>
                         </div>
-
                     </div>
-                    <div className="col-6">
+                    <div className="col-7">
+
+                        <div className="look">
+                            <h2>Twoje ligi </h2>
+                            <br />
+                            <p>{this.state.person.leaugeName} - Pozycja nr.{this.state.person.leguePosition} </p>
+                            <br />
+                            <p>Miejsce w rankingu: {this.state.person.rankingPosition}</p>
+                            <br />
+                        </div>
+                    </div>
+                    <div className="col-5">
+                    </div>
+                </div>
+                <div className="row">
+
+                    <div className="col-5">
+                    </div>
+                    <div className="col-7">
+
                         <div className="look">
                             <h2>Ostatnie wyniki</h2>
                             <br />
                             <p>6:3, 6:4 vs Nosacz (Liga)</p>
                             <br />
                             <p>6:3, 6:4 vs Nosacz (Liga)</p>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-6">
-
-                        <div className="look">
-                            <h2>Twoje ligi: </h2>
-                            <br />
-                            <br />
-                            <p>{this.state.person.leaugeName} - Pozycja nr.{this.state.person.leguePosition} </p>
-                            <br />
-                            <br />
-                            <p>Miejsce w rankingu: {this.state.person.rankingPosition}</p>
-                            <br />
-                            <br />
-                        </div>
-
-                    </div>
-                    <div className="col-6">
-                        <div className="look">
-                            <h2>Wyzwania: </h2>
-                            <br />
-                            <br />
-                            <br />
-                            <br />
-                            <br />
                             <br />
                         </div>
                     </div>

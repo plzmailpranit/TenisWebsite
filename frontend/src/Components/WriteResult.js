@@ -62,7 +62,6 @@ class WriteResult extends Component {
 
 
     async AddResultLeague(event) {
-        alert(this.state.value)
         event.preventDefault();
         await fetch('https://teniswebsite.example.com:5001/api/v1/Result/AddResult', {
             credentials: "include",
@@ -78,7 +77,7 @@ class WriteResult extends Component {
                 set1: this.state.set1,
                 set2: this.state.set2,
                 set3: this.state.set3,
-                league: 1
+                league: true
             })
         }).then((status) => status.json())
 
