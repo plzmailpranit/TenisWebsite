@@ -9,10 +9,14 @@ class Table extends React.Component {
             person1: [],
             person2: [],
             person3: [],
+            matches: [],
+            table: [],
         }
         this.generateTableData1 = this.generateTableData1.bind(this);
         this.generateTableData2 = this.generateTableData2.bind(this);
         this.generateTableData3 = this.generateTableData3.bind(this);
+        this.generateTableData4 = this.generateTableData4.bind(this);
+        this.generateTableData5 = this.generateTableData5.bind(this);
     }
     async componentDidMount() {
         var response1 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/TableLegue/1', {
@@ -53,6 +57,32 @@ class Table extends React.Component {
         var exam3 = await response3.json();
         console.log(exam3);
         this.setState({ person3: exam3, loading: false });
+
+        var response4 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/LastMatchesAll', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+        var exam4 = await response4.json();
+        console.log(exam4);
+        this.setState({ matches: exam4, loading: false });
+
+        var response5 = await fetch('https://teniswebsite.example.com:5001/api/v1/Result/TableRanking', {
+            credentials: "include",
+            method: 'GET',
+            headers: {
+                'Accept': '*/*',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }
+        })
+        var exam5 = await response5.json();
+        console.log(exam5);
+        this.setState({ table: exam5, loading: false });
     }
 
     generateTableData1() {
@@ -114,6 +144,89 @@ class Table extends React.Component {
         }
         return res;
     }
+
+    generateTableData4() {
+        let res = [];
+        let tableData4 = this.state.matches;
+        for (var i = 0; i < tableData4.length; i++) {
+            if (tableData4[i].league === 0) {
+                tableData4[i].league = "Ranking"
+            } else if (tableData4[i].league === 1) {
+                tableData4[i].league = "Liga"
+            }
+            if (tableData4[i].set3 == null) {
+                tableData4[i].set3 = "brak"
+            }
+            res.push(
+                <tr >
+                    <td key={tableData4[i].ownerLastName}>{tableData4[i].ownerLastName}</td>
+                    <td key={tableData4[i].set1}>{tableData4[i].set1}</td>
+                    <td key={tableData4[i].set2}>{tableData4[i].set2}</td>
+                    <td key={tableData4[i].set3}>{tableData4[i].set3}</td>
+                    <td key={tableData4[i].enemyLasttName}>{tableData4[i].enemyLasttName}</td>
+                    <td key={tableData4[i].league}>{tableData4[i].league}</td>
+                </tr>
+            )
+        }
+        return res;
+    }
+
+    generateTableData5() {
+        let res = [];
+        let tableData5 = this.state.table;
+        for (var i = 0; i < tableData5.length; i++) {
+            res.push(
+                <tr >
+                    <td key={tableData5[i].position}>{tableData5[i].position}</td>
+                    <td key={tableData5[i].firstName}>{tableData5[i].firstName}</td>
+                    <td key={tableData5[i].lasttName}>{tableData5[i].lasttName}</td>
+
+                </tr>
+            )
+            if (i == 10) {
+                break;
+            }
+        }
+        return res;
+    }
+    generateTableData6() {
+        let res = [];
+        let tableData5 = this.state.table;
+        for (var i = 10; i < tableData5.length; i++) {
+            res.push(
+                <tr >
+                    <td key={tableData5[i].position}>{tableData5[i].position}</td>
+                    <td key={tableData5[i].firstName}>{tableData5[i].firstName}</td>
+                    <td key={tableData5[i].lasttName}>{tableData5[i].lasttName}</td>
+                    <td key={tableData5[i].matchesWin}>{tableData5[i].matchesWin}</td>
+                    <td key={tableData5[i].matchesLoss}>{tableData5[i].matchesLoss}</td>
+                </tr>
+            )
+            if (i == 20) {
+                break;
+            }
+        }
+        return res;
+    }
+    generateTableData7() {
+        let res = [];
+        let tableData5 = this.state.table;
+        for (var i = 20; i < tableData5.length; i++) {
+            res.push(
+                <tr >
+                    <td key={tableData5[i].position}>{tableData5[i].position}</td>
+                    <td key={tableData5[i].firstName}>{tableData5[i].firstName}</td>
+                    <td key={tableData5[i].lasttName}>{tableData5[i].lasttName}</td>
+                    <td key={tableData5[i].matchesWin}>{tableData5[i].matchesWin}</td>
+                    <td key={tableData5[i].matchesLoss}>{tableData5[i].matchesLoss}</td>
+                </tr>
+            )
+            if (i == 30) {
+                break;
+            }
+        }
+        return res;
+    }
     render() {
         return (
             <Wrapper>
@@ -155,57 +268,9 @@ class Table extends React.Component {
                                                                 <th>Miejsce </th>
                                                                 <th>Imie </th>
                                                                 <th>Nazwisko </th>
+
                                                             </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Janusz</td>
-                                                                <td>Nosacz</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>Tadeusz</td>
-                                                                <td>Kiszka</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>3</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>4</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>5</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>6</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>7</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>8</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>9</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>10</td>
-                                                                <td>Pjoter</td>
-                                                                <td>Ojpjoter</td>
-                                                            </tr>
+                                                            {this.generateTableData5()}
 
                                                         </tbody>
                                                     </table>
@@ -218,12 +283,11 @@ class Table extends React.Component {
                                                                 <th>Miejsce </th>
                                                                 <th>Imie </th>
                                                                 <th>Nazwisko </th>
+                                                                <th>Wygrane </th>
+                                                                <th>Porazki </th>
                                                             </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Janusz</td>
-                                                                <td>Nosacz</td>
-                                                            </tr>
+                                                            {this.generateTableData6()}
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -234,12 +298,11 @@ class Table extends React.Component {
                                                                 <th>Miejsce </th>
                                                                 <th>Imie </th>
                                                                 <th>Nazwisko </th>
+                                                                <th>Wygrane </th>
+                                                                <th>Porazki </th>
                                                             </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Janusz</td>
-                                                                <td>Nosacz</td>
-                                                            </tr>
+                                                            {this.generateTableData7()}
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -338,7 +401,7 @@ class Table extends React.Component {
                                             <th>Typ rozgrywek </th>
 
                                         </tr>
-
+                                        {this.generateTableData4()}
                                     </tbody>
                                 </table>
                             </div>
