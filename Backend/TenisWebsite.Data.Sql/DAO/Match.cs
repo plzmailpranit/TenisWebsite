@@ -17,9 +17,11 @@ namespace TenisWebsite.Data.Sql.DAO
         public int Competitor2Set3 { get; set; }
         public bool Confirmation { get; set; }
         public DateTime AddingTime { get; set; }
+
         public bool Protest { get; set; }
         public int Winner { get; set; }
-
+        public int LeagueId { get; set; }
+        public virtual League League { get; set; }
         public virtual CompetitorData CompetitorData1 { get; set; }
         public virtual CompetitorData CompetitorData2 { get; set; }
         public virtual CompetitorData CompetitorWinner { get; set; }
